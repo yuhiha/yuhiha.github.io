@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>유희하 AI 렌더링 가이드</title>
-<meta name="description" content="공간 유희하 AI 렌더링 시리즈 01 — 주방 사례 6장과 팔로워 전용 실전 가이드 2장">
+<meta name="description" content="공간 유희하 AI 렌더링 시리즈 01 — 팔로워 전용 실전 가이드, 바로 쓰는 프롬프트, 주방 사례 6장">
 <meta property="og:title" content="유희하 AI 렌더링 가이드">
-<meta property="og:description" content="GPT · Veras · Photoshop · Camera Raw로 이어지는 AI 렌더링 작업 순서와 실전 팁">
+<meta property="og:description" content="GPT · Veras · Photoshop · Camera Raw로 이어지는 AI 렌더링 작업 순서와 복사해서 바로 쓰는 프롬프트">
 <meta property="og:image" content="https://yuhiha.co.kr/rendering/img/01.jpg">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
 <style>
-/* 레이아웃: 위 소개·PDF 받기 → 게시물 6장 → 팔로워 전용 2장 → 이용 조건 (가이드 카드와 같은 베이지·주황) */
+/* 레이아웃: 소개·PDF 받기 → 이용 조건 → 팔로워 전용 실전 가이드 2장 → 바로 쓰는 프롬프트 → 게시물 6장 (가이드 카드와 같은 베이지·주황) */
 :root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
 * { box-sizing: border-box }
 html, body { margin: 0; background: var(--desk); color: var(--ink) }
@@ -28,13 +28,26 @@ h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; lett
 .dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
 .note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
 .note[hidden] { display: none }
-.copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--or); background: var(--paper); border: 2px solid var(--or); border-radius: 8px }
-h2 { margin: 6px 4px 0; font-size: 19px; display: flex; gap: 8px; align-items: baseline }
+.copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--or); background: var(--paper); border: 2px solid var(--or); border-radius: 8px; cursor: pointer }
+.copy.done { color: #fff; background: var(--or) }
+h2 { margin: 6px 4px 0; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
 h2 b { color: var(--or); font-size: 15px }
 h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
+.card h2 { margin: 0 0 12px }
+.sub { margin: -10px 4px 0; color: var(--muted); font-size: 14px }
 figure { margin: 0 }
 figure img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 6px rgba(64,54,47,.12); background: #fff }
 ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+/* 프롬프트 카드: 언제 쓰는지 → 첨부할 것 → 본문(복사) */
+.pr h3 { margin: 0; font-size: 17px; line-height: 1.4 }
+.pr h3 em { font-style: normal; display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 4px; background: var(--band); color: var(--or); font-size: 13px; vertical-align: 1px }
+.pr .when { margin: 6px 0 0; color: var(--muted); font-size: 14px }
+.pr .att { margin: 10px 0 0; font-size: 14px }
+.pr .att b { color: var(--or) }
+.pr pre { margin: 12px 0 0; padding: 14px; background: var(--band); border: 1px solid var(--line); border-radius: 8px; white-space: pre-wrap; word-break: keep-all; overflow-wrap: anywhere;
+  font: 14px/1.65 "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: var(--ink) }
+.pr pre[lang=en] { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px }
+.tip { margin: 0; padding: 14px 16px; background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; font-size: 14px }
 footer { text-align: center; color: var(--muted); font-size: 13px }
 footer a, .incl a { color: var(--or) }
 </style>
@@ -43,36 +56,139 @@ footer a, .incl a { color: var(--or) }
 <main>
   <section class="card">
     <div class="brand"><small>YUHIHA / AI 렌더링 시리즈 01</small><h1>AI 렌더링 가이드</h1></div>
-    <p class="lead">게시물 6장과 팔로워분들께만 드리는 실전 가이드 2장을 PDF 한 파일로 모았어요.</p>
+    <p class="lead">팔로워분들께만 드리는 실전 가이드 2장과 복사해서 바로 쓰는 프롬프트, 게시물 6장을 모았어요.</p>
     <a class="dl" id="pdf" href="YUHIHA_AI_Rendering_Guide.pdf" download="공간유희하_AI렌더링_가이드.pdf">PDF로 한 번에 받기<small>8쪽 · 3.7MB · 주방 사례 6장 + 실전 가이드 2장</small></a>
     <p class="note android" hidden>안드로이드: 버튼을 누르면 바로 받아져요. <b>내 파일(파일) 앱 → 다운로드</b> 폴더에 저장돼요.</p>
     <p class="note ios" hidden>아이폰: 버튼을 누르면 공유 화면이 떠요. <b>'파일에 저장'</b>을 누르면 파일 앱에 저장돼요.</p>
     <div class="note inapp" hidden>인스타 안에서 받기가 안 되면 오른쪽 위 <b>⋯ → 외부 브라우저로 열기</b>를 눌러 주세요. PC로 옮기려면 링크를 복사해 카톡 '나에게 보내기'로 보내세요.
-      <button type="button" class="copy">링크 복사</button></div>
-    <p class="note">아래 사진을 길게 누르면 한 장씩 저장할 수도 있어요.</p>
+      <button type="button" class="copy" id="copylink">링크 복사</button></div>
   </section>
 
-  <h2><b>01</b>게시물 · 주방 사례<span>6장</span></h2>
-  <figure><img src="img/01.jpg" width="1080" height="1350" alt="AI 렌더링, 프롬프트만 쓰면 안 됩니다"></figure>
-  <figure><img src="img/02.jpg" width="1080" height="1350" alt="AI 렌더링 작업 순서" loading="lazy"></figure>
-  <figure><img src="img/03.jpg" width="1080" height="1350" alt="STEP 01 GPT — 내 공간에 맞는 프롬프트 만들기" loading="lazy"></figure>
-  <figure><img src="img/04.jpg" width="1080" height="1350" alt="STEP 02 Veras — 빛과 재질의 1차 결과 만들기" loading="lazy"></figure>
-  <figure><img src="img/05.jpg" width="1080" height="1350" alt="STEP 03 Photoshop — 필요한 부분만 말로 요청해 자동 수정" loading="lazy"></figure>
-  <figure><img src="img/06.jpg" width="1080" height="1350" alt="STEP 04 Camera Raw — 마지막 분위기는 보정으로 마무리" loading="lazy"></figure>
-
-  <h2><b>02</b>팔로워 전용 · 실전 가이드<span>2장</span></h2>
-  <figure><img src="img/07.jpg" width="1600" height="2263" alt="AI 렌더링을 더 쉽게, 준비와 순서부터 정리해요" loading="lazy"></figure>
-  <figure><img src="img/08.jpg" width="1600" height="2263" alt="수정하기 전에 준비하고, 필요한 부분만 다듬어요" loading="lazy"></figure>
-
   <section class="card">
-    <h2 style="margin:0 0 12px"><b>00</b>이용 조건</h2>
+    <h2><b>00</b>이용 조건</h2>
     <ul class="incl">
-      <li>개인 공부와 실무 작업에 자유롭게 참고하실 수 있어요.</li>
+      <li>개인 공부와 실무 작업에 자유롭게 참고하실 수 있어요. 프롬프트도 마음껏 고쳐 쓰세요.</li>
       <li>이미지·PDF를 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
       <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
     </ul>
     <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
   </section>
+
+  <h2><b>01</b>팔로워 전용 · 실전 가이드<span>2장</span></h2>
+  <p class="sub">사진을 길게 누르면 한 장씩 저장할 수 있어요.</p>
+  <figure><img src="img/07.jpg" width="1600" height="2263" alt="AI 렌더링을 더 쉽게, 준비와 순서부터 정리해요"></figure>
+  <figure><img src="img/08.jpg" width="1600" height="2263" alt="수정하기 전에 준비하고, 필요한 부분만 다듬어요" loading="lazy"></figure>
+
+  <h2><b>02</b>복사해서 바로 쓰는 프롬프트<span>6개</span></h2>
+  <p class="tip"><b>[ ] 대괄호</b> 안만 내 현장에 맞게 바꿔서 붙여넣으세요. 이미지를 첨부할 때는 <b>스케치업 화면 → 마감재 사진</b> 순서로 올리고, 마감재 사진은 '바닥', '벽지'처럼 이름을 붙여 두면 AI가 덜 헷갈려요.</p>
+
+  <section class="card pr">
+    <h3><em>GPT</em>공간별 렌더링 프롬프트 한 번에 받기</h3>
+    <p class="when">실전 가이드 01 · 렌더링을 시작하기 전에 딱 한 번</p>
+    <p class="att"><b>첨부</b> 모든 공간의 스케치업 캡처 + 위치별 마감재 사진</p>
+    <pre id="p1">너는 실내건축 시각화(아키비즈) 전문가야. 첨부한 스케치업 이미지들은 한 집의 여러 공간이고, 그 뒤의 사진은 위치별 마감재 참고 이미지야.
+이미지마다 AI 렌더링 툴(Veras 등)에 그대로 붙여넣을 프롬프트를 만들어줘.
+
+[현장]
+- 공간: [32평 아파트 거실·주방]
+- 분위기: [따뜻한 미니멀, 화이트 + 밝은 오크]
+- 마감재: 바닥 = [바닥 사진], 벽 = [벽지 사진], 몰딩·문틀 = [몰딩 사진], 주방가구 = [주방가구 사진], 주방 벽 = [주방 벽 사진]
+- 조명: 기존 조명 모두 켜기, 주백색 [4000K]
+- 시간대: [오후의 부드러운 자연광]
+
+[반드시 지킬 것]
+1. 벽·천장·창호 구조, 카메라 위치·화각, 가구 배치, 문 분할은 스케치업 그대로 유지
+2. 스케치업에 없는 가구·소품·창문·문은 추가하지 않기
+3. 같은 마감재는 모든 공간에서 같은 색·질감·패턴 크기로 표현
+
+[출력 형식] 이미지마다 아래 순서로:
+① 공간 이름 (예: 거실 창 방향)
+② English prompt — 120단어 이내, '구조 유지 → 마감재 → 조명·시간대 → 사진 스타일' 순서
+③ Negative prompt (English)
+④ 한글 요약 3줄 — 내 의도와 맞는지 확인용
+
+이미지만 보고 확실하지 않은 부분은 추측하지 말고, 맨 마지막에 질문으로 따로 모아줘.</pre>
+    <button type="button" class="copy" data-for="p1">프롬프트 복사</button>
+  </section>
+
+  <section class="card pr">
+    <h3><em>GPT</em>받은 프롬프트에서 필요한 곳만 고치기</h3>
+    <p class="when">게시물 03장 · 받은 프롬프트를 읽어 보고 의도와 다른 부분이 있을 때</p>
+    <pre id="p2">방금 만든 프롬프트에서 아래 내용만 고쳐줘. 나머지 문장은 바꾸지 마.
+- [주방 상부장 색: 조슈아 라이트 → 화이트 무광]
+- [조명 색온도: 4000K → 3500K]
+
+고친 내용은 English prompt와 한글 요약 모두에 반영하고, 바뀐 문장 앞에 ✏️ 표시를 붙여줘.</pre>
+    <button type="button" class="copy" data-for="p2">프롬프트 복사</button>
+  </section>
+
+  <section class="card pr">
+    <h3><em>렌더링 툴</em>앞 장면의 재질·조명 이어가기</h3>
+    <p class="when">실전 가이드 02 · 거실 창 방향 → 거실 TV벽 → 주방 사선 → 주방 정면처럼 다음 장면으로 넘어갈 때</p>
+    <p class="att"><b>첨부</b> 다음 장면 스케치업 캡처 + 앞에서 마음에 든 결과 이미지(참조)</p>
+    <pre id="p3" lang="en">Use the reference image only as a material and lighting reference.
+Render the attached SketchUp view as a photorealistic interior photo.
+Keep the geometry exactly as modeled: walls, ceiling, openings, camera position and focal length, furniture layout and door divisions.
+Match the reference: same floor, wall, molding and kitchen cabinet finishes, same color and texture scale, warm white [4000K] ceiling lights on, soft [afternoon] daylight from the windows.
+Do not add any furniture, decor, windows or doors.
+Natural soft shadows, realistic reflections, true-to-life materials, straight vertical lines, interior photography, high detail.</pre>
+    <button type="button" class="copy" data-for="p3">프롬프트 복사</button>
+    <pre id="p3n" lang="en">extra furniture, added decor, plants, people, changed layout, distorted perspective, warped lines, curved walls, cartoon, CGI look, oversaturated colors, blurry textures, watermark, text</pre>
+    <button type="button" class="copy" data-for="p3n">네거티브 프롬프트 복사</button>
+  </section>
+
+  <section class="card pr">
+    <h3><em>GPT + Photoshop</em>한 부분만 마감재 바꾸기</h3>
+    <p class="when">실전 가이드 04 · 주방 벽 타일, 상하부장 필름처럼 한 부분만 바꿀 때</p>
+    <p class="att"><b>첨부</b> 수정할 렌더링 이미지 + 바꿀 마감재 사진</p>
+    <pre id="p4">첨부한 렌더링 이미지에서 [주방 벽 타일]만 수정해줘.
+
+[방법]
+- [주방 벽 타일] 영역만 별도 레이어(마스크)로 분리해서 작업
+- 첨부한 [타일 사진]처럼 색·패턴·줄눈 크기를 맞추고, 패턴 크기는 실제 [600×1200mm] 타일 비율로
+
+[그대로 둘 것]
+- 주방가구·상판·수전·조명·카메라 구도, 그리고 수정 영역 밖의 모든 부분
+
+[마무리]
+- 원래 빛 방향·그림자·반사에 맞춰 경계가 티 나지 않게
+- 원본과 같은 해상도로 저장</pre>
+    <button type="button" class="copy" data-for="p4">프롬프트 복사</button>
+  </section>
+
+  <section class="card pr">
+    <h3><em>GPT + Photoshop</em>디테일만 실제처럼 다듬기</h3>
+    <p class="when">게시물 05장 · 전체는 마음에 드는데 수전·콘센트·줄눈 같은 디테일이 어색할 때</p>
+    <pre id="p5">첨부한 렌더링 이미지에서 아래 디테일만 실제 현장 사진처럼 다듬어줘. 구도와 나머지 부분은 바꾸지 마.
+- [수전: 스테인리스 헤어라인 질감, 주변이 자연스럽게 비치도록]
+- [상판 위 벽: 2구 콘센트 추가, 상판에서 200mm 위]
+- [상하부장 문 사이 줄눈: 3mm로 또렷하게, 문 높이 일정하게]
+
+각 부분은 레이어를 따로 나눠서 작업하고, 원래 조명 방향에 맞춰 그림자를 넣어줘.</pre>
+    <button type="button" class="copy" data-for="p5">프롬프트 복사</button>
+  </section>
+
+  <section class="card pr">
+    <h3><em>GPT</em>보정 전에 확대해서 점검하기</h3>
+    <p class="when">실전 가이드 03 · 업스케일 후 포토샵 수정이나 Camera Raw 보정 전에</p>
+    <p class="att"><b>첨부</b> 업스케일한 렌더링 이미지</p>
+    <pre id="p6">첨부한 실내 렌더링을 실제 시공 사진 기준으로 검토해줘.
+아래 항목별로 어색한 곳을 찾아서 '위치 – 문제 – 고치는 방법'으로 정리하고, 가장 눈에 띄는 것부터 순서대로 적어줘.
+1. 수직·수평선 (벽 모서리, 가구 문 분할, 몰딩이 휘거나 기울었는지)
+2. 재질 (반복 패턴, 흐릿한 질감, 실제와 다른 광택)
+3. 빛과 그림자 (조명 방향, 그림자 누락, 너무 밝거나 어두운 곳)
+4. 디테일 (수전·손잡이·콘센트·줄눈 모양)
+5. 색감 (화이트밸런스, 채도 과함) — Camera Raw에서 바꿀 값도 같이 제안</pre>
+    <button type="button" class="copy" data-for="p6">프롬프트 복사</button>
+  </section>
+
+  <h2><b>03</b>게시물 · 주방 사례<span>6장</span></h2>
+  <figure><img src="img/01.jpg" width="1080" height="1350" alt="AI 렌더링, 프롬프트만 쓰면 안 됩니다" loading="lazy"></figure>
+  <figure><img src="img/02.jpg" width="1080" height="1350" alt="AI 렌더링 작업 순서" loading="lazy"></figure>
+  <figure><img src="img/03.jpg" width="1080" height="1350" alt="STEP 01 GPT — 내 공간에 맞는 프롬프트 만들기" loading="lazy"></figure>
+  <figure><img src="img/04.jpg" width="1080" height="1350" alt="STEP 02 Veras — 빛과 재질의 1차 결과 만들기" loading="lazy"></figure>
+  <figure><img src="img/05.jpg" width="1080" height="1350" alt="STEP 03 Photoshop — 필요한 부분만 말로 요청해 자동 수정" loading="lazy"></figure>
+  <figure><img src="img/06.jpg" width="1080" height="1350" alt="STEP 04 Camera Raw — 마지막 분위기는 보정으로 마무리" loading="lazy"></figure>
 
   <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
 </main>
@@ -88,17 +204,23 @@ footer a, .incl a { color: var(--or) }
 
   if (inApp) document.querySelector('.inapp').hidden = false;
   if (/Android/.test(ua) || /[?&]android\b/.test(location.search)) document.querySelector('.android').hidden = false;
-  document.querySelector('.copy').addEventListener('click', function (e) {
-    var url = location.origin + location.pathname, btn = e.currentTarget;
-    function done() { btn.textContent = '복사했어요'; }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(done, fallback);
-    } else fallback();
+
+  // 링크·프롬프트 복사 (인앱 브라우저는 clipboard API가 막힐 수 있어 textarea 선택 복사로 한 번 더 시도)
+  function copyText(text, btn) {
+    var label = btn.textContent;
+    function done() { btn.textContent = '복사했어요'; btn.classList.add('done'); setTimeout(function () { btn.textContent = label; btn.classList.remove('done'); }, 1800); }
     function fallback() {
-      var t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select();
-      try { document.execCommand('copy'); done(); } catch (_) { prompt('이 링크를 복사하세요', url); }
+      var t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select(); t.setSelectionRange(0, text.length);
+      try { document.execCommand('copy') ? done() : prompt('길게 눌러 복사하세요', text); } catch (_) { prompt('길게 눌러 복사하세요', text); }
       t.remove();
     }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.getElementById('copylink').addEventListener('click', function (e) { copyText(location.origin + location.pathname, e.currentTarget); });
+  document.querySelectorAll('[data-for]').forEach(function (b) {
+    b.addEventListener('click', function () { copyText(document.getElementById(b.dataset.for).textContent, b); });
   });
 
   if (!ios || !navigator.canShare || typeof File === 'undefined') return;
