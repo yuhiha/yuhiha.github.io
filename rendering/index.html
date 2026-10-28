@@ -79,107 +79,66 @@ footer a, .incl a { color: var(--or) }
   <figure><img src="img/07.jpg" width="1080" height="1350" alt="AI 렌더링을 더 쉽게, 준비와 순서부터 정리해요"></figure>
   <figure><img src="img/08.jpg" width="1080" height="1350" alt="수정하기 전에 준비하고, 필요한 부분만 다듬어요" loading="lazy"></figure>
 
-  <h2><b>02</b>복사해서 바로 쓰는 프롬프트<span>6개</span></h2>
-  <p class="tip"><b>[ ] 대괄호</b> 안만 내 현장에 맞게 바꿔서 붙여넣으세요. 이미지는 <b>카드에 적힌 순서대로</b> 첨부하고, 스케치업 화면은 <b>잘라 내지 말고 원본 크기 그대로</b> 올리세요. 작은 이미지는 AI가 수납장 문을 창문으로 읽는 것처럼 형태를 잘못 볼 수 있어요.</p>
+  <h2><b>02</b>장마다 나온 프롬프트 그대로<span>6개</span></h2>
+  <p class="tip">게시물과 실전 가이드에 나온 문장을 그대로 옮겼어요. <b>[ ] 대괄호</b> 안만 내 현장에 맞게 바꿔서 ChatGPT에 붙여넣으세요. 스케치업 화면은 <b>잘라 내지 말고 원본 크기 그대로</b> 올려야 AI가 형태를 덜 틀려요.</p>
 
   <section class="card pr">
-    <h3><em>GPT</em>공간별 렌더링 프롬프트 한 번에 받기</h3>
-    <p class="when">실전 가이드 01 · 렌더링을 시작하기 전에 딱 한 번</p>
-    <p class="att"><b>첨부 순서</b> ① 모든 공간의 스케치업 캡처 → ② 마감재 사진(아래 [현장]에 적은 순서대로)</p>
-    <pre id="p1">너는 실내건축 시각화(아키비즈) 전문가야. 첨부한 이미지 중 앞의 [4]장은 한 집의 여러 공간을 찍은 스케치업 화면이고, 그 뒤의 사진은 위치별 마감재 참고 이미지야.
-이미지는 만들지 말고, 스케치업 화면마다 AI 렌더링 툴(Veras 등)에 그대로 붙여넣을 프롬프트를 글로만 써줘.
-
-[현장]
-- 공간: [32평 아파트 거실·주방]
-- 분위기: [따뜻한 미니멀, 화이트 + 밝은 오크]
-- 마감재 사진(첨부 순서대로): [바닥 → 벽지 → 몰딩·문틀 → 주방가구 → 주방 벽]
-- 조명: 기존 조명 모두 켜기, 주백색 [4000K]
-- 시간대: [오후의 부드러운 자연광]
-
-[반드시 지킬 것]
-1. 벽·천장·창호 구조, 카메라 위치·화각, 가구 배치, 문 분할은 스케치업 그대로 유지
-2. 스케치업에 없는 가구·소품·창문·문은 추가하지 않고, 벽이나 가구 면을 창·유리로 바꾸지 않기
-3. 같은 마감재는 모든 공간에서 같은 색·질감·패턴 크기로 표현
-
-[출력 형식] 스케치업 화면마다 아래 순서로:
-① 공간 이름 (예: 거실 창 방향)
-② English prompt — 120단어 이내, '구조 유지 → 마감재 → 조명·시간대 → 사진 스타일' 순서
-③ Negative prompt (English)
-④ 한글 요약 3줄 — 내 의도와 맞는지 확인용
-
-이미지만 보고 확실하지 않은 부분은 추측하지 말고, 맨 마지막에 질문으로 따로 모아줘.</pre>
+    <h3><em>게시물 3장</em>한 공간 프롬프트 받기</h3>
+    <p class="when">STEP 01 GPT · 원하는 조건만 간단히 알려 주면 GPT가 렌더링용 프롬프트로 정리해 줘요</p>
+    <p class="att"><b>첨부</b> 스케치업 캡처 + 마감재 사진</p>
+    <pre id="p1">전체 [18평 오피스텔]의 [주방]이야.
+첨부한 스케치업의 구조와 카메라는 그대로 유지해줘.
+[가구·벽 타일·상판]은 함께 첨부한 마감재 이미지를 참고해서 표현해줘.
+조명은 [주백색]으로, 시간대는 [오후]로 해줘.
+이 조건으로 [Veras]용 프롬프트를 만들어줘. 이미지는 만들지 말고 글로만 써줘.</pre>
     <button type="button" class="copy" data-for="p1">프롬프트 복사</button>
   </section>
 
   <section class="card pr">
-    <h3><em>GPT</em>받은 프롬프트에서 필요한 곳만 고치기</h3>
-    <p class="when">게시물 03장 · 받은 프롬프트를 읽어 보고 의도와 다른 부분이 있을 때</p>
-    <pre id="p2">방금 만든 프롬프트에서 아래 내용만 고쳐줘. 나머지 문장은 바꾸지 마.
-- [주방 상부장 색: 지금 색 → 화이트 무광]
-- [조명 색온도: 4000K → 3500K]
-
-고친 내용은 English prompt와 한글 요약 모두에 반영하고, 바뀐 문장 앞에 ✏️ 표시를 붙여줘.</pre>
+    <h3><em>게시물 3장</em>받은 프롬프트에서 다른 부분만 고치기</h3>
+    <p class="when">받은 프롬프트를 읽어 보고 내 의도와 다른 곳이 있을 때</p>
+    <pre id="p2">방금 프롬프트에서 [조명을 주백색 → 전구색으로]만 바꿔줘. 나머지 문장은 그대로 둬.</pre>
     <button type="button" class="copy" data-for="p2">프롬프트 복사</button>
   </section>
 
   <section class="card pr">
-    <h3><em>렌더링 툴</em>앞 장면의 재질·조명 이어가기</h3>
-    <p class="when">실전 가이드 02 · 거실 창 방향 → 거실 TV벽 → 주방 사선 → 주방 정면처럼 다음 장면으로 넘어갈 때</p>
-    <p class="att"><b>첨부 순서</b> ① 다음 장면 스케치업 캡처 → ② 앞에서 마음에 든 결과 이미지(참조)</p>
-    <pre id="p3" lang="en">Image 1 is the SketchUp view to render. Image 2 is a finished render, used only as a reference for materials and lighting.
-Render image 1 as a photorealistic interior photo.
-Keep the geometry of image 1 exactly: walls, ceiling, openings, camera position and focal length, furniture layout and door divisions. Every surface stays what it is in the model — do not turn walls or cabinet panels into windows or glass.
-Match image 2: same floor, wall, molding and kitchen cabinet finishes, same color and texture scale, warm white [4000K] ceiling lights on, soft [afternoon] daylight from the existing windows.
-Do not add any furniture, decor, windows or doors.
-Natural soft shadows, realistic reflections, true-to-life materials, straight vertical lines, interior photography, high detail.</pre>
+    <h3><em>실전 가이드 1장</em>여러 공간 프롬프트 한 번에 받기</h3>
+    <p class="when">거실·주방처럼 장면이 여러 개일 때 · 공간마다 따로 받지 말고 한 번에</p>
+    <p class="att"><b>첨부 순서</b> ① 모든 공간의 스케치업 캡처 → ② 위치별 마감재 사진</p>
+    <pre id="p3">첨부한 모든 스케치업 이미지를 보고 공간별 렌더링 프롬프트를 만들어줘.
+구조·카메라·가구 배치와 문 분할은 유지하고, 새 가구·창문은 추가하지 마.
+[바닥·벽지·몰딩·주방가구·주방 벽]은 위치별로 첨부한 마감재 이미지를 참고해줘.
+기존 조명은 [주백색 4000K]로 켜고, [오후의 부드러운 자연광]으로 표현해줘.
+이미지는 만들지 말고 글로만 써줘.</pre>
     <button type="button" class="copy" data-for="p3">프롬프트 복사</button>
-    <pre id="p3n" lang="en">extra furniture, added decor, plants, people, changed layout, distorted perspective, warped lines, curved walls, cartoon, CGI look, oversaturated colors, blurry textures, watermark, text</pre>
-    <button type="button" class="copy" data-for="p3n">네거티브 프롬프트 복사</button>
   </section>
 
   <section class="card pr">
-    <h3><em>GPT + Photoshop</em>한 부분만 마감재 바꾸기</h3>
-    <p class="when">실전 가이드 04 · 주방 벽 타일, 상하부장 필름처럼 한 부분만 바꿀 때</p>
-    <p class="att"><b>첨부 순서</b> ① 수정할 렌더링 이미지 → ② 바꿀 마감재 사진</p>
-    <pre id="p4">첫 번째 이미지(렌더링)에서 [주방 벽 타일]만 수정해줘.
-
-[방법]
-- [주방 벽 타일] 영역만 별도 레이어(마스크)로 분리해서 작업
-- 두 번째 이미지([타일 사진])처럼 색·패턴·줄눈 크기를 맞추고, 패턴 크기는 실제 [600×1200mm] 타일 비율로
-
-[그대로 둘 것]
-- 주방가구·상판·수전·조명·카메라 구도, 그리고 수정 영역 밖의 모든 부분
-
-[마무리]
-- 원래 빛 방향·그림자·반사에 맞춰 경계가 티 나지 않게
-- 원본과 같은 해상도로 저장</pre>
+    <h3><em>실전 가이드 1장</em>다음 장면으로 이어 가기</h3>
+    <p class="when">거실 창 방향 → 거실 TV벽 → 주방 사선 → 주방 정면처럼 가까운 구도를 따라 넘어갈 때</p>
+    <p class="att"><b>첨부 순서</b> ① 다음 장면 스케치업 캡처 → ② 앞에서 만든 렌더링 이미지</p>
+    <pre id="p4">두 번째 이미지는 앞에서 만든 렌더링이야. 참조로 써서 첫 번째 스케치업 장면을 렌더링해줘.
+바닥·벽·가구 마감재와 조명 조건은 두 번째 이미지와 똑같이 유지해줘.
+구조·카메라·가구 배치는 첫 번째 이미지 그대로 두고, 벽이나 수납장을 창으로 바꾸지 마.</pre>
     <button type="button" class="copy" data-for="p4">프롬프트 복사</button>
   </section>
 
   <section class="card pr">
-    <h3><em>GPT + Photoshop</em>디테일만 실제처럼 다듬기</h3>
-    <p class="when">게시물 05장 · 전체는 마음에 드는데 수전·콘센트·줄눈 같은 디테일이 어색할 때</p>
-    <pre id="p5">첨부한 렌더링 이미지에서 아래 디테일만 실제 현장 사진처럼 다듬어줘. 구도와 나머지 부분은 바꾸지 마.
-- [수전: 스테인리스 헤어라인 질감, 주변이 자연스럽게 비치도록]
-- [상판 위 벽: 2구 콘센트 추가, 상판에서 200mm 위]
-- [상하부장 문 사이 줄눈: 3mm로 또렷하게, 문 높이 일정하게]
-
-각 부분은 레이어를 따로 나눠서 작업하고, 원래 조명 방향에 맞춰 그림자를 넣어줘.</pre>
-    <button type="button" class="copy" data-for="p5">프롬프트 복사</button>
+    <h3><em>게시물 5장</em>필요한 부분만 말로 수정하기</h3>
+    <p class="when">STEP 03 Photoshop · 렌더링 결과는 괜찮은데 색이나 디테일만 바꾸고 싶을 때</p>
+    <p class="att"><b>첨부</b> 수정할 렌더링 이미지</p>
+    <pre id="p5">[주방 상하부장과 문틀] 필름의 우드색을 [조슈아 라이트]로 바꿔줘.</pre>
+    <button type="button" class="copy" data-for="p5">우드색 변경 복사</button>
+    <pre id="p5b">[콘센트를 추가하고 수전도 실제 질감처럼] 바꿔줘.</pre>
+    <button type="button" class="copy" data-for="p5b">디테일 수정 복사</button>
   </section>
 
   <section class="card pr">
-    <h3><em>GPT</em>보정 전에 확대해서 점검하기</h3>
-    <p class="when">실전 가이드 03 · 업스케일 후 포토샵 수정이나 Camera Raw 보정 전에</p>
-    <p class="att"><b>첨부</b> 업스케일한 렌더링 이미지</p>
-    <pre id="p6">첨부한 실내 렌더링을 실제 시공 사진 기준으로 검토해줘.
-이 이미지는 AI로 만든 렌더링이라 3D 모델은 고칠 수 없어. 고치는 방법은 포토샵 부분 수정, Camera Raw 보정, AI에 다시 요청할 문장 중 하나로만 알려줘.
-아래 항목별로 어색한 곳을 찾아서 '위치 – 문제 – 고치는 방법'으로 정리하고, 가장 눈에 띄는 것부터 순서대로 적어줘.
-1. 수직·수평선 (벽 모서리, 가구 문 분할, 몰딩이 휘거나 기울었는지)
-2. 재질 (반복 패턴, 흐릿한 질감, 실제와 다른 광택)
-3. 빛과 그림자 (조명 방향, 그림자 누락, 너무 밝거나 어두운 곳)
-4. 디테일 (수전·손잡이·콘센트·줄눈 모양)
-5. 색감 (화이트밸런스, 채도 과함) — Camera Raw에서 바꿀 값도 같이 제안</pre>
+    <h3><em>실전 가이드 2장</em>수정 방식 정해 두고 한 부분만 바꾸기</h3>
+    <p class="when">업스케일한 뒤, 바꿀 곳과 그대로 둘 곳을 처음부터 정해서 요청할 때</p>
+    <p class="att"><b>첨부 순서</b> ① 수정할 렌더링 이미지 → ② 바꿀 마감재 사진</p>
+    <pre id="p6">[주방 벽 타일]만 별도 레이어로 분리해서, 첨부한 [타일 이미지]처럼 바꿔줘.
+[주방가구·상판·수전·카메라 구도]는 그대로 유지해줘.</pre>
     <button type="button" class="copy" data-for="p6">프롬프트 복사</button>
   </section>
 
