@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 AI 렌더링 가이드</title>
+<meta name="description" content="공간 유희하 AI 렌더링 시리즈 01 — 주방 사례 6장과 팔로워 전용 실전 가이드 2장">
+<meta property="og:title" content="유희하 AI 렌더링 가이드">
+<meta property="og:description" content="GPT · Veras · Photoshop · Camera Raw로 이어지는 AI 렌더링 작업 순서와 실전 팁">
+<meta property="og:image" content="https://yuhiha.co.kr/rendering/img/01.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 위 소개·PDF 받기 → 게시물 6장 → 팔로워 전용 2장 → 이용 조건 (가이드 카드와 같은 베이지·주황) */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note[hidden] { display: none }
+.copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--or); background: var(--paper); border: 2px solid var(--or); border-radius: 8px }
+h2 { margin: 6px 4px 0; font-size: 19px; display: flex; gap: 8px; align-items: baseline }
+h2 b { color: var(--or); font-size: 15px }
+h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
+figure { margin: 0 }
+figure img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 6px rgba(64,54,47,.12); background: #fff }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a { color: var(--or) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA / AI 렌더링 시리즈 01</small><h1>AI 렌더링 가이드</h1></div>
+    <p class="lead">게시물 6장과 팔로워분들께만 드리는 실전 가이드 2장을 PDF 한 파일로 모았어요.</p>
+    <a class="dl" id="pdf" href="YUHIHA_AI_Rendering_Guide.pdf" download="공간유희하_AI렌더링_가이드.pdf">PDF로 한 번에 받기<small>8쪽 · 3.7MB · 주방 사례 6장 + 실전 가이드 2장</small></a>
+    <p class="note android" hidden>안드로이드: 버튼을 누르면 바로 받아져요. <b>내 파일(파일) 앱 → 다운로드</b> 폴더에 저장돼요.</p>
+    <p class="note ios" hidden>아이폰: 버튼을 누르면 공유 화면이 떠요. <b>'파일에 저장'</b>을 누르면 파일 앱에 저장돼요.</p>
+    <div class="note inapp" hidden>인스타 안에서 받기가 안 되면 오른쪽 위 <b>⋯ → 외부 브라우저로 열기</b>를 눌러 주세요. PC로 옮기려면 링크를 복사해 카톡 '나에게 보내기'로 보내세요.
+      <button type="button" class="copy">링크 복사</button></div>
+    <p class="note">아래 사진을 길게 누르면 한 장씩 저장할 수도 있어요.</p>
+  </section>
+
+  <h2><b>01</b>게시물 · 주방 사례<span>6장</span></h2>
+  <figure><img src="img/01.jpg" width="1080" height="1350" alt="AI 렌더링, 프롬프트만 쓰면 안 됩니다"></figure>
+  <figure><img src="img/02.jpg" width="1080" height="1350" alt="AI 렌더링 작업 순서" loading="lazy"></figure>
+  <figure><img src="img/03.jpg" width="1080" height="1350" alt="STEP 01 GPT — 내 공간에 맞는 프롬프트 만들기" loading="lazy"></figure>
+  <figure><img src="img/04.jpg" width="1080" height="1350" alt="STEP 02 Veras — 빛과 재질의 1차 결과 만들기" loading="lazy"></figure>
+  <figure><img src="img/05.jpg" width="1080" height="1350" alt="STEP 03 Photoshop — 필요한 부분만 말로 요청해 자동 수정" loading="lazy"></figure>
+  <figure><img src="img/06.jpg" width="1080" height="1350" alt="STEP 04 Camera Raw — 마지막 분위기는 보정으로 마무리" loading="lazy"></figure>
+
+  <h2><b>02</b>팔로워 전용 · 실전 가이드<span>2장</span></h2>
+  <figure><img src="img/07.jpg" width="1600" height="2263" alt="AI 렌더링을 더 쉽게, 준비와 순서부터 정리해요" loading="lazy"></figure>
+  <figure><img src="img/08.jpg" width="1600" height="2263" alt="수정하기 전에 준비하고, 필요한 부분만 다듬어요" loading="lazy"></figure>
+
+  <section class="card">
+    <h2 style="margin:0 0 12px"><b>00</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무 작업에 자유롭게 참고하실 수 있어요.</li>
+      <li>이미지·PDF를 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
+  </section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
+</main>
+<script>
+// CAD 자료 페이지(/ctb/)와 같은 방식: 아이폰 인앱 브라우저는 내려받기가 막히는 경우가 많아 공유 화면('파일에 저장')으로 넘긴다.
+// 공유는 누른 순간에 바로 불러야 해서 PDF를 미리 받아 둔다. ?ios 를 붙이면 PC에서도 이 경로를 시험할 수 있다.
+(function () {
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) || /[?&]ios\b/.test(location.search);
+  var inApp = /Instagram|FBAN|FBAV|KAKAOTALK|NAVER|Line\//.test(ua) || /[?&]inapp\b/.test(location.search);
+  var pdf = document.getElementById('pdf');
+  var file = null;
+
+  if (inApp) document.querySelector('.inapp').hidden = false;
+  if (/Android/.test(ua) || /[?&]android\b/.test(location.search)) document.querySelector('.android').hidden = false;
+  document.querySelector('.copy').addEventListener('click', function (e) {
+    var url = location.origin + location.pathname, btn = e.currentTarget;
+    function done() { btn.textContent = '복사했어요'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, fallback);
+    } else fallback();
+    function fallback() {
+      var t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch (_) { prompt('이 링크를 복사하세요', url); }
+      t.remove();
+    }
+  });
+
+  if (!ios || !navigator.canShare || typeof File === 'undefined') return;
+  fetch(pdf.getAttribute('href')).then(function (r) { return r.blob(); }).then(function (b) {
+    var f = new File([b], '공간유희하_AI렌더링_가이드.pdf', { type: 'application/pdf' });
+    if (!navigator.canShare({ files: [f] })) return;
+    file = f;
+    document.querySelector('.ios').hidden = false;
+  }).catch(function () {});
+
+  pdf.addEventListener('click', function (e) {
+    if (!file) return;
+    e.preventDefault();
+    navigator.share({ files: [file] }).catch(function (err) {
+      if (err && err.name !== 'AbortError') location.href = pdf.getAttribute('href');
+    });
+  });
+})();
+</script>
+</body>
+</html>
