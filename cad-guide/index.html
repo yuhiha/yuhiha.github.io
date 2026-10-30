@@ -28,6 +28,8 @@ h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; lett
 .dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
 .note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
 .note[hidden] { display: none }
+.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note.key b { color: var(--or) }
 .copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--or); background: var(--paper); border: 2px solid var(--or); border-radius: 8px; cursor: pointer }
 .copy.done { color: #fff; background: var(--or) }
 h2 { margin: 6px 4px 0; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
@@ -62,6 +64,7 @@ footer a, .incl a, .note a, dl.terms a { color: var(--or) }
   <section class="card">
     <div class="brand"><small>YUHIHA / 사람이 읽는 도면 지침서</small><h1>유희하 CAD 작업 기준서</h1></div>
     <p class="lead">도면 7장을 AI가 그렸어요. 대신 조건이 있어요. AI 혼자 되는 게 아니라, 세 가지 자료가 맞물려야 도면이 나와요. 오늘은 그 첫 번째, 도면마다 지켜야 할 <b>작업기준서 3종</b>(벽체실측도 · 평면도 · 철거설비도)을 <b>사람이 읽기 편한 간략 버전</b>으로 먼저 드려요.</p>
+    <p class="note key"><b>컴퓨터(AI)가 읽는 파일이 아니라, 사람이 보기 편하게 정리한 자료예요.</b> AI에 그대로 넣는 프롬프트가 아니라, 유희하가 도면을 그릴 때 지키는 규칙을 사람이 읽기 쉽게 풀어 쓴 지침서예요.</p>
     <a class="dl" id="zip" href="YUHIHA_CAD_guide.zip" download="유희하_CAD_작업기준.zip">3종 한 번에 받기<small>압축 파일 · 0.7MB · PDF 3개 (총 38쪽)</small></a>
     <p class="note android" hidden>안드로이드: 버튼을 누르면 바로 받아져요. <b>내 파일(파일) 앱 → 다운로드</b> 폴더에 저장돼요.</p>
     <p class="note ios" hidden>아이폰: 버튼을 누르면 공유 화면이 떠요. <b>'파일에 저장'</b>을 누르면 파일 앱에 저장돼요.</p>
