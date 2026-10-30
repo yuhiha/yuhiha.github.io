@@ -35,6 +35,13 @@ h2 b { color: var(--or); font-size: 15px }
 h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
 .card h2 { margin: 0 0 12px }
 ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+/* 먼저: 맞물려야 하는 세 가지 (오늘 드리는 1번만 강조) */
+ol.steps3 { margin: 0 0 16px; padding: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 8px }
+ol.steps3 li { counter-increment: s; display: grid; grid-template-columns: 30px 1fr; column-gap: 10px; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 15px }
+ol.steps3 li::before { content: counter(s); grid-row: span 2; width: 26px; height: 26px; border-radius: 50%; background: var(--line); color: var(--ink); font-weight: 700; font-size: 14px; display: grid; place-items: center }
+ol.steps3 li span { color: var(--muted); font-size: 13px }
+ol.steps3 li.now { background: var(--paper); box-shadow: inset 0 0 0 2px var(--or) }
+ol.steps3 li.now::before { background: var(--or); color: #fff }
 /* 읽기 전에: 문서 속 말 풀이 */
 dl.terms { margin: 14px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 14px }
 dl.terms dt { font-weight: 700; white-space: nowrap }
@@ -54,7 +61,7 @@ footer a, .incl a, .note a, dl.terms a { color: var(--or) }
 <main>
   <section class="card">
     <div class="brand"><small>YUHIHA / AI 도면 작업 기준</small><h1>유희하 CAD 작업 기준서</h1></div>
-    <p class="lead">릴스에서 캐드가 혼자 도면을 그려 나가던 거, 기억하시죠? AI가 그때 따라 그린 유희하 작업 기준이에요. 벽체실측도부터 목공도면까지, 인테리어 도면 한 세트 7권을 한 번에 받을 수 있어요.</p>
+    <p class="lead">도면 7장을 AI가 그렸어요. 대신 조건이 있어요. AI 혼자 되는 게 아니라, 세 가지 자료가 맞물려야 도면이 나와요. 오늘은 그 첫 번째, 도면마다 지켜야 할 <b>작업기준서 7종</b>(벽체실측도부터 목공도면까지)을 드려요.</p>
     <a class="dl" id="zip" href="YUHIHA_CAD_guide.zip" download="유희하_CAD_작업기준.zip">7권 한 번에 받기<small>압축 파일 · 1.3MB · PDF 7개 (총 66쪽)</small></a>
     <p class="note android" hidden>안드로이드: 버튼을 누르면 바로 받아져요. <b>내 파일(파일) 앱 → 다운로드</b> 폴더에 저장돼요.</p>
     <p class="note ios" hidden>아이폰: 버튼을 누르면 공유 화면이 떠요. <b>'파일에 저장'</b>을 누르면 파일 앱에 저장돼요.</p>
@@ -63,12 +70,16 @@ footer a, .incl a, .note a, dl.terms a { color: var(--or) }
   </section>
 
   <section class="card">
-    <h2><b>먼저</b>이 기준서는 이렇게 쓰여요</h2>
+    <h2><b>먼저</b>AI가 도면을 그리려면 세 가지가 맞물려야 해요</h2>
+    <ol class="steps3">
+      <li class="now"><b>도면마다 지켜야 할 작업기준서</b><span>오늘 드리는 자료예요</span></li>
+      <li><b>견적서, 손 스케치, 현장 사진</b><span>AI가 읽고 도면에 반영할 현장 자료</span></li>
+      <li><b>이걸 AI에게 맡기는 순서</b><span>유희하가 직접 만든 캐드 작업 스킬로 AI에게 캐드를 맡기는 방법</span></li>
+    </ol>
     <ul class="incl">
-      <li>유희하는 도면을 그릴 때 AI(Claude)에게 직접 만든 <b>캐드 작업 스킬</b>을 쥐여 줘요. 스킬은 AI가 캐드를 직접 움직이는 손이고, 이 기준서는 그 손이 지켜야 할 <b>작업 지침</b>이에요.</li>
-      <li>그래서 문장이 사람에게 설명하는 말투보다 <b>AI에게 시키는 말투</b>에 가까워요. "임의로 맞추지 않는다", "사람이 직접 입력한다"처럼 AI가 해도 되는 것과 안 되는 것을 딱 잘라 적어 뒀어요.</li>
-      <li>기준서만으로 도면이 저절로 그려지지는 않아요. 실제로 AI가 그리려면 <b>유희하 CAD 템플릿 + 캐드 작업 스킬 + 이 기준서</b> 세 가지가 함께 있어야 해요. 스킬은 유희하가 직접 쓰는 도구라 이 자료에는 들어 있지 않아요.</li>
-      <li>스킬이 없어도 쓸모는 그대로예요. 사람이 도면을 그릴 때 <b>작업 순서와 검수 체크리스트</b>로 보시면 돼요. 신입 디자이너 교육용으로도 좋아요.</li>
+      <li>그래서 기준서는 사람에게 설명하는 말투보다 <b>AI에게 시키는 말투</b>에 가까워요. "임의로 맞추지 않는다", "사람이 직접 입력한다"처럼 AI가 해도 되는 것과 안 되는 것을 딱 잘라 적어 뒀어요.</li>
+      <li>기준서 하나만으로 도면이 저절로 그려지지는 않아요. 2번과 3번도 하나씩 공개할게요. <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>를 팔로우해 두시면 처음부터 끝까지 따라오실 수 있어요.</li>
+      <li>지금 바로도 쓸모는 있어요. 사람이 도면을 그릴 때 <b>작업 순서와 검수 체크리스트</b>로 보시면 돼요. 신입 디자이너 교육용으로도 좋아요.</li>
     </ul>
     <dl class="terms">
       <dt>제공 CAD 템플릿</dt><dd>유희하 표준 양식 DWG와 출력 스타일 CTB예요. <a href="../ctb/">유희하 CAD 자료</a>에서 받을 수 있어요.</dd>
