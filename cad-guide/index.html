@@ -22,6 +22,7 @@ body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun
 main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
 .card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
 .brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+.tag { display: inline-block; vertical-align: 5px; margin-left: 4px; padding: 2px 8px; border: 1.5px solid var(--or); border-radius: 999px; color: var(--or); font-size: 13px; font-weight: 700; letter-spacing: 0 }
 h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
 .lead { margin: 12px 0 0; color: var(--muted) }
 .dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
@@ -60,7 +61,7 @@ footer a, .incl a, .note a, dl.terms a { color: var(--or) }
 <body>
 <main>
   <section class="card">
-    <div class="brand"><small>YUHIHA / AI 도면 작업 기준</small><h1>유희하 CAD 작업 기준서</h1></div>
+    <div class="brand"><small>YUHIHA / AI 도면 작업 기준</small><h1>유희하 CAD 작업 기준서 <span class="tag">초안 v1</span></h1></div>
     <p class="lead">도면 7장을 AI가 그렸어요. 대신 조건이 있어요. AI 혼자 되는 게 아니라, 세 가지 자료가 맞물려야 도면이 나와요. 오늘은 그 첫 번째, 도면마다 지켜야 할 <b>작업기준서 3종</b>(벽체실측도 · 평면도 · 철거설비도)을 먼저 드려요.</p>
     <a class="dl" id="zip" href="YUHIHA_CAD_guide.zip" download="유희하_CAD_작업기준.zip">3종 한 번에 받기<small>압축 파일 · 0.7MB · PDF 3개 (총 38쪽)</small></a>
     <p class="note android" hidden>안드로이드: 버튼을 누르면 바로 받아져요. <b>내 파일(파일) 앱 → 다운로드</b> 폴더에 저장돼요.</p>
@@ -77,8 +78,9 @@ footer a, .incl a, .note a, dl.terms a { color: var(--or) }
       <li><b>이걸 AI에게 맡기는 순서</b><span>유희하가 직접 만든 캐드 작업 스킬로 AI에게 캐드를 맡기는 방법</span></li>
     </ol>
     <ul class="incl">
-      <li>그래서 기준서는 사람에게 설명하는 말투보다 <b>AI에게 시키는 말투</b>에 가까워요. "임의로 맞추지 않는다", "사람이 직접 입력한다"처럼 AI가 해도 되는 것과 안 되는 것을 딱 잘라 적어 뒀어요.</li>
-      <li>기준서 하나만으로 도면이 저절로 그려지지는 않아요. 나머지 작업기준서 4종(천장기기도 · 스위치콘센트도 · 회로도 · 목공도면)과 2번, 3번도 하나씩 공개할게요. <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>를 팔로우해 두시면 처음부터 끝까지 따라오실 수 있어요.</li>
+      <li><b>사람이 보기 편하게 정리한 버전이에요.</b> 실제로 AI에게 주는 지시문은 컴퓨터가 읽는 형식이라, 여기엔 그 내용을 사람이 읽기 쉽게 풀어서 올렸어요. 그래도 "임의로 맞추지 않는다", "사람이 직접 입력한다"처럼 AI에게 시키던 말투가 군데군데 남아 있어요.</li>
+      <li><b>아직 초안이에요.</b> 실제 현장에서 계속 써 보면서 고쳐 나가고 있어서, 표현이나 기준이 바뀔 수 있어요. 고친 버전은 같은 링크에 다시 올려 둘게요.</li>
+      <li><b>다음 영상에서 더 풀어요.</b> 기준서 하나만으로 도면이 저절로 그려지지는 않아요. 나머지 작업기준서 4종(천장기기도 · 스위치콘센트도 · 회로도 · 목공도면), 2번 현장 자료 정리법, 3번 AI에게 맡기는 순서까지 하나씩 공개할게요. <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>를 팔로우해 두시면 처음부터 끝까지 따라오실 수 있어요.</li>
       <li>지금 바로도 쓸모는 있어요. 사람이 도면을 그릴 때 <b>작업 순서와 검수 체크리스트</b>로 보시면 돼요. 신입 디자이너 교육용으로도 좋아요.</li>
     </ul>
     <dl class="terms">
