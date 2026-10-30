@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 CAD 작업 기준서</title>
+<meta name="description" content="공간 유희하가 AI 스킬에 주는 도면 작업 기준 — 벽체실측도 · 평면도 · 철거설비도">
+<meta property="og:title" content="유희하 CAD 작업 기준서">
+<meta property="og:description" content="AI가 캐드 도면을 그릴 때 따르는 유희하 실무 기준 3권 — 벽체실측도 · 평면도 · 철거설비도">
+<meta property="og:image" content="https://yuhiha.co.kr/cad-guide/img/01_p1.png">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 소개·한 번에 받기 → 읽기 전에(스킬과 함께 쓰는 문서) → 이용 조건 → 기준서 3권 (렌더링 가이드 페이지와 같은 베이지·주황) */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note[hidden] { display: none }
+.copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--or); background: var(--paper); border: 2px solid var(--or); border-radius: 8px; cursor: pointer }
+.copy.done { color: #fff; background: var(--or) }
+h2 { margin: 6px 4px 0; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
+.card h2 { margin: 0 0 12px }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+/* 읽기 전에: 문서 속 말 풀이 */
+dl.terms { margin: 14px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 14px }
+dl.terms dt { font-weight: 700; white-space: nowrap }
+dl.terms dd { margin: 0; color: var(--muted) }
+/* 기준서 카드: 첫 쪽 미리보기 + 설명 + 따로 받기 */
+.doc { display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: start }
+.doc img { width: 112px; height: auto; border: 1px solid var(--line); border-radius: 4px; background: #fff; display: block }
+.doc h3 { margin: 0; font-size: 18px; line-height: 1.35 }
+.doc h3 em { font-style: normal; color: var(--or); margin-right: 6px }
+.doc p { margin: 6px 0 0; color: var(--muted); font-size: 14px }
+.doc a.one { display: inline-block; margin-top: 10px; padding: 7px 12px; border: 2px solid var(--or); border-radius: 8px; color: var(--or); font-weight: 700; font-size: 14px; text-decoration: none }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a, .note a, dl.terms a { color: var(--or) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA / AI 도면 작업 기준</small><h1>유희하 CAD 작업 기준서</h1></div>
+    <p class="lead">릴스에서 캐드가 혼자 도면을 그려 나가던 거, 기억하시죠? AI가 그때 따라 그린 유희하 작업 기준이 이 3권이에요. 벽체실측도 · 평면도 · 철거설비도를 한 번에 받을 수 있어요.</p>
+    <a class="dl" id="zip" href="YUHIHA_CAD_guide.zip" download="유희하_CAD_작업기준.zip">3권 한 번에 받기<small>압축 파일 · 0.7MB · PDF 3개 (총 33쪽)</small></a>
+    <p class="note android" hidden>안드로이드: 버튼을 누르면 바로 받아져요. <b>내 파일(파일) 앱 → 다운로드</b> 폴더에 저장돼요.</p>
+    <p class="note ios" hidden>아이폰: 버튼을 누르면 공유 화면이 떠요. <b>'파일에 저장'</b>을 누르면 파일 앱에 저장돼요.</p>
+    <div class="note inapp" hidden>인스타 안에서 받기가 안 되면 오른쪽 위 <b>⋯ → 외부 브라우저로 열기</b>를 눌러 주세요. PC로 옮기려면 링크를 복사해 카톡 '나에게 보내기'로 보내세요.
+      <button type="button" class="copy" id="copylink">링크 복사</button></div>
+  </section>
+
+  <section class="card">
+    <h2><b>먼저</b>이 기준서는 이렇게 쓰여요</h2>
+    <ul class="incl">
+      <li>유희하는 도면을 그릴 때 AI(Claude)에게 직접 만든 <b>캐드 작업 스킬</b>을 쥐여 줘요. 스킬은 AI가 캐드를 직접 움직이는 손이고, 이 기준서는 그 손이 지켜야 할 <b>작업 지침</b>이에요.</li>
+      <li>그래서 문장이 사람에게 설명하는 말투보다 <b>AI에게 시키는 말투</b>에 가까워요. "임의로 맞추지 않는다", "사람이 직접 입력한다"처럼 AI가 해도 되는 것과 안 되는 것을 딱 잘라 적어 뒀어요.</li>
+      <li>기준서만으로 도면이 저절로 그려지지는 않아요. 실제로 AI가 그리려면 <b>유희하 CAD 템플릿 + 캐드 작업 스킬 + 이 기준서</b> 세 가지가 함께 있어야 해요. 스킬은 유희하가 직접 쓰는 도구라 이 자료에는 들어 있지 않아요.</li>
+      <li>스킬이 없어도 쓸모는 그대로예요. 사람이 도면을 그릴 때 <b>작업 순서와 검수 체크리스트</b>로 보시면 돼요. 신입 디자이너 교육용으로도 좋아요.</li>
+    </ul>
+    <dl class="terms">
+      <dt>제공 CAD 템플릿</dt><dd>유희하 표준 양식 DWG와 출력 스타일 CTB예요. <a href="../ctb/">유희하 CAD 자료</a>에서 받을 수 있어요.</dd>
+      <dt>정답 도면</dt><dd>AI가 결과를 맞춰 볼 완성 예시예요. 철거설비도 마지막 쪽에 들어 있어요(현장명·담당자는 지웠어요).</dd>
+      <dt>손실측도 · 견적서</dt><dd>현장에서 손으로 적어 온 치수와 견적 내용이에요. AI는 이걸 읽고 도면에 반영해요.</dd>
+    </dl>
+  </section>
+
+  <section class="card">
+    <h2><b>00</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무 작업에 자유롭게 참고하실 수 있어요.</li>
+      <li>PDF를 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
+  </section>
+
+  <h2><b>01</b>기준서 3권<span>따로 받기</span></h2>
+
+  <section class="card doc">
+    <img src="img/01_p1.png" width="112" height="158" alt="벽체실측도 작업기준 첫 쪽">
+    <div>
+      <h3><em>01</em>벽체실측도</h3>
+      <p>9쪽 · 손실측도와 현장사진으로 벽체·문·창호를 그리는 법, 해치, 외부·내부 치수, 실명, 최종 배치와 검수</p>
+      <a class="one" href="YUHIHA_01_wall_survey.pdf" download="유희하_01_벽체실측도_작업기준.pdf">PDF 받기</a>
+    </div>
+  </section>
+
+  <section class="card doc">
+    <img src="img/02_p1.png" width="112" height="158" alt="평면도 작업기준 첫 쪽" loading="lazy">
+    <div>
+      <h3><em>02</em>평면도</h3>
+      <p>11쪽 · 손도면 우선 가구 배치, 가구별 크기, 주방 유효 길이·깊이, 욕실 사용 구간·젠다이, 가구 블록과 해치, 최종 검수</p>
+      <a class="one" href="YUHIHA_02_floor_plan.pdf" download="유희하_02_평면도_작업기준.pdf">PDF 받기</a>
+    </div>
+  </section>
+
+  <section class="card doc">
+    <img src="img/03_p1.png" width="112" height="158" alt="철거설비도 작업기준 첫 쪽" loading="lazy">
+    <div>
+      <h3><em>03</em>철거설비도</h3>
+      <p>13쪽 · 공통사항 박스 배치, 견적서 내용을 공통·실별로 나누기, 철거 벽체 표현, 지시선 기준, 레이어 검수, 별첨 정답 도면</p>
+      <a class="one" href="YUHIHA_03_demolition_mep.pdf" download="유희하_03_철거설비도_작업기준.pdf">PDF 받기</a>
+    </div>
+  </section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
+</main>
+<script>
+// CAD 자료 페이지(/ctb/)와 같은 방식: 아이폰 인앱 브라우저는 내려받기가 막히는 경우가 많아 공유 화면('파일에 저장')으로 넘긴다.
+// 공유는 누른 순간에 바로 불러야 해서 zip을 미리 받아 둔다. ?ios 를 붙이면 PC에서도 이 경로를 시험할 수 있다.
+(function () {
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) || /[?&]ios\b/.test(location.search);
+  var inApp = /Instagram|FBAN|FBAV|KAKAOTALK|NAVER|Line\//.test(ua) || /[?&]inapp\b/.test(location.search);
+  var zip = document.getElementById('zip');
+  var file = null;
+
+  if (inApp) document.querySelector('.inapp').hidden = false;
+  if (/Android/.test(ua) || /[?&]android\b/.test(location.search)) document.querySelector('.android').hidden = false;
+  document.getElementById('copylink').addEventListener('click', function (e) {
+    var url = location.origin + location.pathname, btn = e.currentTarget;
+    function done() { btn.textContent = '복사했어요'; btn.classList.add('done'); }
+    function fallback() {
+      var t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy') ? done() : prompt('이 링크를 복사하세요', url); } catch (_) { prompt('이 링크를 복사하세요', url); }
+      t.remove();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fallback);
+    else fallback();
+  });
+
+  if (!ios || !navigator.canShare || typeof File === 'undefined') return;
+  fetch(zip.getAttribute('href')).then(function (r) { return r.blob(); }).then(function (b) {
+    var f = new File([b], '유희하_CAD_작업기준.zip', { type: 'application/zip' });
+    if (!navigator.canShare({ files: [f] })) return;
+    file = f;
+    document.querySelector('.ios').hidden = false;
+  }).catch(function () {});
+
+  zip.addEventListener('click', function (e) {
+    if (!file) return;
+    e.preventDefault();
+    navigator.share({ files: [file] }).catch(function (err) {
+      if (err && err.name !== 'AbortError') location.href = zip.getAttribute('href');
+    });
+  });
+})();
+</script>
+</body>
+</html>
