@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 아파트 스케치업 소스</title>
+<meta name="description" content="공간 유희하가 아파트 인테리어 모델링에 쓰는 스케치업 소스 모음 — 창호 · 도어 · 욕실 · 주방 · 수납 · 조명과 천장 설비">
+<meta property="og:title" content="유희하 아파트 스케치업 소스">
+<meta property="og:description" content="아파트 인테리어 모델링에 바로 끌어다 쓰는 스케치업 소스 모음 — 창호 · 도어 · 욕실 · 주방 · 수납 · 조명과 천장 설비">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 소개·받기 → 들어 있는 것 → 쓰는 법 → 이용 조건 (작업기준서 페이지와 같은 베이지·주황) */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note[hidden] { display: none }
+.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note.key b { color: var(--or) }
+.copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--or); background: var(--paper); border: 2px solid var(--or); border-radius: 8px; cursor: pointer }
+.copy.done { color: #fff; background: var(--or) }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+/* 들어 있는 것: 분류별 소스 이름 */
+dl.parts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 14px; font-size: 15px }
+dl.parts dt { font-weight: 700; white-space: nowrap }
+dl.parts dd { margin: 0; color: var(--muted) }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a, .note a { color: var(--or) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA / SKETCHUP SOURCE</small><h1>유희하 아파트 스케치업 소스</h1></div>
+    <p class="lead">아파트 인테리어를 모델링할 때 매번 새로 그리기 번거로운 창호, 문, 욕실·주방 기구, 천장 설비를 한 파일에 정리했어요. 필요한 것만 복사해서 내 모델에 붙여 쓰시면 돼요.</p>
+    <a class="dl" href="YUHIHA_apartment_source.skp" download="유희하_아파트_스케치업소스.skp">스케치업 파일 받기<small>SKP · 13MB · 스케치업 2021 이상</small></a>
+    <p class="note key"><b>PC 스케치업에서 여는 파일이에요.</b> 폰에서는 열리지 않으니, 아래 '링크 복사'로 카톡 '나에게 보내기'에 보낸 뒤 PC에서 받아 주세요.</p>
+    <div class="note">
+      인스타 안에서 받기가 안 되면 오른쪽 위 <b>⋯ → 외부 브라우저로 열기</b>를 눌러 주세요.
+      <button type="button" class="copy" id="copylink">링크 복사</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>들어 있는 것</h2>
+    <dl class="parts">
+      <dt>창호</dt><dd>창호 3종, 고정창, 주방 소창 (창 크기·열림을 숫자로 바꾸는 다이내믹 컴포넌트)</dd>
+      <dt>도어</dt><dd>여닫이문, 3연동 도어, 도어 세트, 터닝도어, 현관문, 루버 문짝</dd>
+      <dt>욕실</dt><dd>양변기, 세면기, 욕조, 샤워 수전, 욕실 수납장·거울, 선반벽, 환풍기</dd>
+      <dt>주방</dt><dd>하부장, 싱크대·아일랜드 상판, 인덕션, 후드, 주방 가전 2종</dd>
+      <dt>수납</dt><dd>수납장, 팬트리 5종</dd>
+      <dt>조명·천장</dt><dd>2인치 다운라이트, 라인·가구 조명, 시스템에어컨·천장형 에어컨, 스프링클러, 화재·연기감지기, 비상방송 스피커, CCTV</dd>
+      <dt>기타</dt><dd>아파트 난간, 커튼</dd>
+    </dl>
+  </section>
+
+  <section class="card">
+    <h2><b>02</b>쓰는 법</h2>
+    <ul class="incl">
+      <li>파일을 연 뒤 필요한 소스를 골라 <b>복사(Ctrl+C) → 내 모델에서 붙여넣기(Ctrl+V)</b> 하세요. 재질도 같이 따라와요.</li>
+      <li>단위는 <b>mm</b>예요. 재질 이름은 '욕실 거울_진회색'처럼 <b>부위_색</b>으로 정리해 두어서 재질 창에서 찾기 쉬워요.</li>
+      <li>창호는 크기를 숫자로 바꿀 수 있어요. 오른쪽 클릭 → <b>Dynamic Components → Component Options</b>에서 폭·높이를 바꾸세요.</li>
+      <li>스케치업 2020 이하 버전에서는 열리지 않아요.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><b>03</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무 모델링에 자유롭게 쓰실 수 있어요.</li>
+      <li>파일을 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏 실무 자료는 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>에서 계속 공유해 드릴게요.</p>
+  </section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
+</main>
+<script>
+// 링크 복사: 폰에서 받은 사람이 PC로 옮기기 쉽게 (작업기준서 페이지와 같은 방식)
+document.getElementById('copylink').addEventListener('click', function (e) {
+  var url = location.origin + location.pathname, btn = e.currentTarget;
+  function done() { btn.textContent = '복사했어요'; btn.classList.add('done'); }
+  function fallback() {
+    var t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy') ? done() : prompt('이 링크를 복사하세요', url); } catch (_) { prompt('이 링크를 복사하세요', url); }
+    t.remove();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fallback);
+  else fallback();
+});
+</script>
+</body>
+</html>
