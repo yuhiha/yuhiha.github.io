@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 스케치업 조명 작업 가이드</title>
+<meta name="description" content="스케치업에서 천장 조명을 빠르게 배치하는 4단계 — 주변 모델 숨기기 · 천장 뒤집기 · 다운라이트 중심 표시 · 광원 한 번에 넣기">
+<meta property="og:title" content="유희하 스케치업 조명 작업 가이드">
+<meta property="og:description" content="스케치업에서 천장 조명을 빠르게 배치하는 4단계 실전 가이드">
+<meta property="og:image" content="https://yuhiha.co.kr/lighting/img/01.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 소개·PDF 받기 → 이용 조건 → 가이드 4쪽 미리보기 (스케치업 소스 페이지와 같은 베이지·주황) */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note.key b { color: var(--or) }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
+main > h2 { margin: 6px 4px 0 }
+ol.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+.page { padding: 0; overflow: hidden }
+.page img { display: block; width: 100%; height: auto }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a, .note a { color: var(--or) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA / SKETCHUP TIPS</small><h1>스케치업 조명 작업 가이드</h1></div>
+    <p class="lead">천장 조명을 하나하나 옮기지 말고, 천장을 뒤집어 한 번에 배치하고 광원까지 한 번에 넣는 방법을 4쪽에 정리했어요. 아래 미리보기로 바로 보셔도 되고, PDF로 저장해 두셔도 돼요.</p>
+    <a class="dl" href="YUHIHA_lighting_guide.pdf" download="유희하_스케치업_조명작업가이드.pdf">PDF 받기<small>4쪽 · 5.1MB</small></a>
+    <p class="note key"><b>곧 공개: 유희하 루비</b> 스케치업에서 바로 쓰는 유희하 루비도 곧 공개할게요. <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>를 팔로우해 두시면 공개될 때 가장 먼저 받아 보실 수 있어요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>들어 있는 것</h2>
+    <ol class="steps">
+      <li><b>주변 모델 숨기기</b> — 천장만 남겨 보고 같은 키로 다시 보기 (Hide Rest of Model)</li>
+      <li><b>천장 뒤집기</b> — 컴포넌트 복사본을 스케일 -1로 뒤집어 조명 배치</li>
+      <li><b>다운라이트 중심 표시</b> — 뒷면 원에 Find Center로 가이드점 만들기</li>
+      <li><b>광원 한 번에 넣기</b> — 제자리 붙여넣기로 같은 컴포넌트 전체에 렌더링 조명 적용</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2><b>00</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무 작업에 자유롭게 참고하실 수 있어요.</li>
+      <li>PDF를 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
+  </section>
+
+  <h2><b>02</b>가이드 미리보기<span>4쪽</span></h2>
+  <section class="card page"><img src="img/01.jpg" width="1200" height="1697" alt="1쪽 보고 싶은 부분만 숨겼다가 다시 보여요"></section>
+  <section class="card page"><img src="img/02.jpg" width="1200" height="1697" alt="2쪽 천장을 뒤집으면 조명 배치가 쉬워져요" loading="lazy"></section>
+  <section class="card page"><img src="img/03.jpg" width="1200" height="1697" alt="3쪽 다운라이트 뒷면 중심 한 번에 표시해두세요" loading="lazy"></section>
+  <section class="card page"><img src="img/04.jpg" width="1200" height="1697" alt="4쪽 광원 하나로 같은 다운라이트에 함께" loading="lazy"></section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
+</main>
+</body>
+</html>
