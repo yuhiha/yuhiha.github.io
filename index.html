@@ -2,19 +2,96 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>공간 유희하</title>
-<meta name="robots" content="noindex">
-<!-- 이 도메인은 인스타·마케팅 자료 저장소(/checklist, /ctb)라 맨 앞 주소는 인스타로 보냄 -->
-<meta http-equiv="refresh" content="0; url=https://www.instagram.com/yuhiha_designers/">
-<link rel="canonical" href="https://www.instagram.com/yuhiha_designers/">
+<meta name="description" content="공간 유희하 공식 자료실 — 인테리어 실무 자료를 인스타그램 @yuhiha_designers에서 무료로 나눠요.">
+<meta property="og:title" content="공간 유희하">
+<meta property="og:description" content="인테리어 실무 자료를 인스타그램 @yuhiha_designers에서 무료로 나눠요.">
+<meta property="og:image" content="https://yuhiha.co.kr/img/logo.png">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
 <style>
-  html, body { margin: 0; background: #f2efe7; color: #40362f; font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif }
-  p { padding: 40px 20px; text-align: center; font-size: 15px }
-  a { color: #ba4d2c }
+/* 회사 첫 화면: 누구인지 → 이 사이트가 하는 일·안심 안내 → 자료(게시물로 연결, 파일 직접 링크 없음) → 회사 정보 */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 32px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+/* 맨 위 카드는 원본 가로 로고 이미지 하나만 (logo_orig/png/2x/Asset 24, 심볼+YHH+YUHIHA 영문 가로 검정) */
+.card.logo { padding: 14px 20px; display: flex; justify-content: center }
+h1.hero { margin: 0; line-height: 0; width: 100%; max-width: 100px }
+h1.hero img { width: 100%; height: auto }
+.lead { margin: 14px 0 0; color: var(--muted) }
+.ig { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 17px; border-radius: 8px; padding: 14px }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note b { color: var(--or) }
+/* 자료 목록: 누르면 인스타 게시물로 (댓글로 신청) */
+ol.res { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px }
+ol.res a { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; padding: 12px 14px; background: var(--band); border-radius: 8px; color: var(--ink); text-decoration: none }
+ol.res b { font-size: 16px }
+ol.res span { grid-column: 1; color: var(--muted); font-size: 13px }
+ol.res i { grid-row: 1 / span 2; grid-column: 2; font-style: normal; color: var(--or); font-weight: 700; font-size: 14px; white-space: nowrap }
+h2.small { margin-bottom: 8px }
+h2.small b { font-size: 13px }
+dl.biz { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 12px; line-height: 1.5 }
+dl.biz dt { font-weight: 700; white-space: nowrap }
+dl.biz dd { margin: 0; color: var(--muted) }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+a { color: var(--or) }
 </style>
 </head>
 <body>
-<p>인스타그램 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 이동합니다.</p>
+<main>
+  <section class="card logo">
+    <h1 class="hero"><img src="img/logo_lockup_en.png" width="1029" height="421" alt="공간 유희하 YHH YUHIHA"></h1>
+  </section>
+
+  <section class="card">
+    <p class="lead" style="margin-top:0">인스타그램 @yuhiha_designers는 공간 유희하에서 운영하는 계정이에요. 아파트·주거 공간 리모델링 현장에서 쓰는 견적·도면·모델링 자료를 정리해 무료로 나누고 있어요.</p>
+    <a class="ig" href="https://www.instagram.com/yuhiha_designers/">인스타그램 @yuhiha_designers</a>
+  </section>
+
+  <section class="card">
+    <h2><b>안내</b>공간 유희하 공식 자료실이에요</h2>
+    <ul class="incl">
+      <li>인스타그램 게시물에 댓글을 남기신 분께 DM으로 자료 링크를 보내 드리고, 그 자료를 이 사이트에서 받아 가시게 해요.</li>
+      <li>지금 나누는 자료는 모두 무료예요. 받는 데 회원가입이나 로그인이 필요 없어요.</li>
+    </ul>
+    <p class="note"><b>공간 유희하는 DM으로 계좌 이체, 카드 번호, 비밀번호, 개인정보를 요청하지 않아요.</b> 유료 서비스 결제는 이 사이트(yuhiha.co.kr)의 공식 결제 화면에서만 진행해요. DM으로 이런 요청을 받으셨다면 공간 유희하가 보낸 것이 아니니 응답하지 마세요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>자료</b>지금까지 나눈 자료</h2>
+    <ol class="res">
+      <li><a href="https://www.instagram.com/reel/De3CGy8znLK/"><b>인테리어 견적 체크리스트</b><span>상담 전에 미리 적어 보는 우리 집 체크리스트</span><i>게시물 보기 →</i></a></li>
+      <li><a href="https://www.instagram.com/p/De4dj_sk_l8/"><b>유희하 CAD 자료</b><span>표준 양식 DWG · 출력 스타일 CTB</span><i>게시물 보기 →</i></a></li>
+      <li><a href="https://www.instagram.com/p/DfEcbwpk9cR/"><b>AI 렌더링 가이드</b><span>주방 사례로 보는 AI 렌더링 실전 과정</span><i>게시물 보기 →</i></a></li>
+      <li><a href="https://www.instagram.com/reel/DfHnYLvzId9/"><b>CAD 작업기준서</b><span>벽체실측도 · 평면도 · 철거설비도</span><i>게시물 보기 →</i></a></li>
+      <li><a href="https://www.instagram.com/p/DfO2cBincEz/"><b>스케치업 조명 작업 가이드</b><span>천장 뒤집기로 조명 한 번에 배치하기</span><i>게시물 보기 →</i></a></li>
+    </ol>
+    <p class="lead">각 게시물에 댓글을 남겨 주시면 DM으로 자료를 보내 드려요.</p>
+  </section>
+
+  <section class="card">
+    <h2 class="small"><b>회사 정보</b></h2>
+    <dl class="biz">
+      <dt>상호</dt><dd>주식회사 유희하</dd>
+      <dt>대표</dt><dd>김종인</dd>
+      <dt>사업자등록번호</dt><dd>138-88-03445</dd>
+      <dt>주소</dt><dd>서울특별시 강남구 봉은사로105길 54-5, B201호 (삼성동, 리버뷰빌)</dd>
+      <dt>운영 계정</dt><dd>인스타그램 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a> (공간 유희하 운영)</dd>
+      <dt>문의</dt><dd><a href="mailto:yuhiha4733@gmail.com">yuhiha4733@gmail.com</a></dd>
+    </dl>
+  </section>
+
+  <footer>© 2026 공간 유희하</footer>
+</main>
 </body>
 </html>
