@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 스케치업 라이브러리</title>
+<meta name="description" content="공간 유희하가 실무에서 쓰는 스케치업 라이브러리와 단축키 설정 — 주방 · 욕실 · 중문·방문 · 창호 · 마감재">
+<meta property="og:title" content="유희하 스케치업 라이브러리">
+<meta property="og:description" content="실무에서 쓰는 스케치업 라이브러리(제품 모델·마감재)와 단축키 설정 파일">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 소개·받기 2개(라이브러리·단축키) → 들어 있는 것 → 쓰는 법 → 이용 조건 (스케치업 소스 페이지와 같은 베이지·주황)
+   라이브러리 skp는 279MB라 GitHub Pages(파일당 100MB 제한)에 못 올려서 같은 저장소의 Release 첨부 파일로 받는다. */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl.sub { margin-top: 10px; background: var(--paper); color: var(--or); border: 2px solid var(--or); font-size: 17px; padding: 13px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note.key b { color: var(--or) }
+.copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--or); background: var(--paper); border: 2px solid var(--or); border-radius: 8px; cursor: pointer }
+.copy.done { color: #fff; background: var(--or) }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+ul.incl, ol.steps { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+dl.parts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 14px; font-size: 15px }
+dl.parts dt { font-weight: 700; white-space: nowrap }
+dl.parts dd { margin: 0; color: var(--muted) }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a, .note a, .steps a { color: var(--or) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA / SKETCHUP LIBRARY</small><h1>유희하 스케치업 라이브러리</h1></div>
+    <p class="lead">공간 유희하가 실무 모델링에서 쓰는 제품 모델과 마감재를 한 파일에 모았어요. 저희가 쓰는 단축키 설정 파일도 같이 드려요.</p>
+    <a class="dl" href="https://github.com/yuhiha/yuhiha.github.io/releases/download/library-v1/YUHIHA_library_v1.skp">라이브러리 받기<small>SKP · 279MB · 스케치업 2021 이상</small></a>
+    <a class="dl sub" href="YUHIHA_shortcuts.zip" download="유희하_스케치업_단축키.zip">단축키 설정 받기<small>ZIP · 1KB</small></a>
+    <p class="note key"><b>PC에서 받아 주세요.</b> 라이브러리는 279MB로 용량이 커서 와이파이 환경의 PC에서 받는 걸 권해요. 폰이라면 아래 '링크 복사'로 카톡 '나에게 보내기'에 보낸 뒤 PC에서 열어 주세요.</p>
+    <div class="note">
+      인스타 안에서 받기가 안 되면 오른쪽 위 <b>⋯ → 외부 브라우저로 열기</b>를 눌러 주세요.
+      <button type="button" class="copy" id="copylink">링크 복사</button>
+    </div>
+    <p class="note key"><b>곧 공개: 유희하 루비</b> 스케치업에서 바로 쓰는 유희하 루비도 곧 공개할게요. <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>를 팔로우해 두시면 공개될 때 가장 먼저 받아 보실 수 있어요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>들어 있는 것</h2>
+    <dl class="parts">
+      <dt>주방</dt><dd>상부장, 하부장, 키큰장, 아일랜드, 싱크대, 인덕션, 후드, 주방 가전</dd>
+      <dt>욕실</dt><dd>양변기(대림·인토), 세면대(라우체), 수전(비반트 등), 욕실 소품</dd>
+      <dt>중문·방문</dt><dd>여닫이문, 터닝도어, 현관문, 문선, 도무스 손잡이 6종</dd>
+      <dt>창호</dt><dd>창호 3종, 주방 소창</dd>
+      <dt>마감재</dt><dd>LX·영림·한솔·KCC신한·노바·이펙스 필름과 마루(구정·동화) 등 189종</dd>
+    </dl>
+    <p class="note">제품 모델은 제조사 사진·도면을 참고해 저희가 다시 만든 시각화용 모델이에요. 제조사가 배포한 정품 파일이 아니라서 실제 치수는 시공 전에 제조사 자료로 꼭 확인해 주세요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>02</b>쓰는 법</h2>
+    <ol class="steps">
+      <li><b>라이브러리:</b> 파일을 연 뒤 필요한 모델을 골라 <b>복사(Ctrl+C) → 내 모델에서 붙여넣기(Ctrl+V)</b> 하세요. 재질도 같이 따라와요.</li>
+      <li><b>단축키:</b> 압축을 풀고 스케치업 <b>창(Window) → 환경설정(Preferences) → 바로 가기(Shortcuts) → 가져오기(Import)</b>에서 <b>.dat 파일</b>을 고르세요. 기존 단축키가 바뀌니, 필요하면 먼저 '내보내기(Export)'로 지금 설정을 저장해 두세요.</li>
+      <li>단축키 일부는 확장 프로그램(Enscape, Fredo Tools, Weld, FixIt 등)이 설치되어 있어야 동작해요.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2><b>03</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무 모델링에 자유롭게 쓰실 수 있어요.</li>
+      <li>파일을 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
+  </section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://yuhiha.co.kr/">yuhiha.co.kr</a></footer>
+</main>
+<script>
+// 링크 복사: 폰에서 받은 사람이 PC로 옮기기 쉽게 (스케치업 소스 페이지와 같은 방식)
+document.getElementById('copylink').addEventListener('click', function (e) {
+  var url = location.origin + location.pathname, btn = e.currentTarget;
+  function done() { btn.textContent = '복사했어요'; btn.classList.add('done'); }
+  function fallback() {
+    var t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy') ? done() : prompt('이 링크를 복사하세요', url); } catch (_) { prompt('이 링크를 복사하세요', url); }
+    t.remove();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fallback);
+  else fallback();
+});
+</script>
+</body>
+</html>
