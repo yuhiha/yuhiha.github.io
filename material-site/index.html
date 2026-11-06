@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 자재 사이트 만들기 가이드</title>
+<meta name="description" content="자주 쓰는 자재를 한곳에 모아 상담하며 담고 마감재표로 출력하는 사이트를, 그림 보고 요청문 복사해서 따라 만드는 6쪽 가이드">
+<meta property="og:title" content="유희하 자재 사이트 만들기 가이드">
+<meta property="og:description" content="그림 보고 요청문만 복사해서 따라 만드는 자재 사이트 6쪽 가이드">
+<meta property="og:image" content="https://yuhiha.co.kr/material-site/img/01.jpg">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 소개·PDF 받기 → 들어 있는 것 → 이용 조건 → 가이드 6쪽 미리보기 (조명 가이드 페이지와 같은 베이지·주황) */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note.key b { color: var(--or) }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
+main > h2 { margin: 6px 4px 0 }
+ol.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+.page { padding: 0; overflow: hidden }
+.page img { display: block; width: 100%; height: auto }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a, .note a { color: var(--or) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA / MATERIAL SITE</small><h1>자재 사이트 만들기 가이드</h1></div>
+    <p class="lead">자주 쓰는 자재를 한곳에 모아 두고, 상담하면서 고객별로 담고, 마감재표로 바로 출력하는 사이트예요. 코딩 몰라도 그림을 보고 요청문만 복사해서 GPT에 보내면 따라 만들 수 있게 6쪽에 정리했어요.</p>
+    <a class="dl" href="YUHIHA_site_guide.pdf" download="유희하_자재사이트_만들기_가이드.pdf">PDF 받기<small>6쪽 · 0.9MB</small></a>
+    <p class="note key"><b>PDF로 받아 두세요.</b> 2쪽에서 이 PDF를 GPT 대화에 그대로 첨부해서 시작해요. 아래 미리보기로 먼저 훑어보셔도 돼요.</p>
+    <p class="note key"><b>곧 공개: 유희하 루비</b> 스케치업에서 바로 쓰는 유희하 루비도 곧 공개할게요. <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>를 팔로우해 두시면 공개될 때 가장 먼저 받아 보실 수 있어요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>들어 있는 것</h2>
+    <ol class="steps">
+      <li><b>사이트 뼈대 만들기</b> — 대분류 → 소분류 → 큰 이미지 카드, 하트 즐겨찾기</li>
+      <li><b>제품 이미지·정보 모으기</b> — 제품 목록만 주면 공식 홈페이지에서 찾아 폴더로 정리</li>
+      <li><b>샘플 확인하고 등록</b> — 맞는 제품인지 대조한 뒤 사이트에 올리기</li>
+      <li><b>고객 셀렉션</b> — 고객별·공간별로 담고 후보·확정·보류 표시</li>
+      <li><b>마감재표 출력</b> — 담아 둔 자재로 보드·마감재표를 PNG·PDF로</li>
+    </ol>
+    <p class="note">단계마다 GPT에 그대로 보낼 요청문이 들어 있어요. 사이트 제작 기능이 있는 ChatGPT 환경에서 따라 해 주세요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>00</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무에 자유롭게 참고하실 수 있어요.</li>
+      <li>PDF를 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
+  </section>
+
+  <h2><b>02</b>가이드 미리보기<span>6쪽</span></h2>
+  <section class="card page"><img src="img/01.jpg" width="1200" height="1699" alt="1쪽 자주 쓰는 자재, 매번 다시 찾고 있나요?"></section>
+  <section class="card page"><img src="img/02.jpg" width="1200" height="1699" alt="2쪽 STEP 1 이 화면을 첨부해요" loading="lazy"></section>
+  <section class="card page"><img src="img/03.jpg" width="1200" height="1699" alt="3쪽 STEP 2 제품 목록을 주면 이미지와 정보를 모아요" loading="lazy"></section>
+  <section class="card page"><img src="img/04.jpg" width="1200" height="1699" alt="4쪽 STEP 3 샘플을 확인하고 사이트에 등록해요" loading="lazy"></section>
+  <section class="card page"><img src="img/05.jpg" width="1200" height="1699" alt="5쪽 고객 셀렉션도 동작까지 알려주세요" loading="lazy"></section>
+  <section class="card page"><img src="img/06.jpg" width="1200" height="1699" alt="6쪽 담아둔 자재 그대로 마감재표 완성" loading="lazy"></section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
+</main>
+</body>
+</html>
