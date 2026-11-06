@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>유희하 자재 사이트 만들기 가이드</title>
-<meta name="description" content="자주 쓰는 자재를 한곳에 모아 상담하며 담고 마감재표로 출력하는 사이트를, 그림 보고 요청문 복사해서 따라 만드는 6쪽 가이드">
-<meta property="og:title" content="유희하 자재 사이트 만들기 가이드">
-<meta property="og:description" content="그림 보고 요청문만 복사해서 따라 만드는 자재 사이트 6쪽 가이드">
+<title>유희하 자재 홈페이지 만드는 프롬프트</title>
+<meta name="description" content="자주 쓰는 자재를 한곳에 모아 상담하며 담고 마감재표로 출력하는 홈페이지를, 프롬프트 복사·붙여넣기로 만드는 초보자 전용 6쪽 PDF">
+<meta property="og:title" content="초보자 전용 자재 홈페이지 만드는 프롬프트">
+<meta property="og:description" content="복사해서 붙여 넣기만 하면 되는 초보자 전용 자재 홈페이지 프롬프트">
 <meta property="og:image" content="https://yuhiha.co.kr/material-site/img/01.jpg">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../img/logo.png">
@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
 <style>
-/* 레이아웃: 소개·PDF 받기 → 들어 있는 것 → 이용 조건 → 가이드 6쪽 미리보기 (조명 가이드 페이지와 같은 베이지·주황) */
+/* 레이아웃: 소개·PDF 받기 → 들어 있는 것 → 이용 조건 → 프롬프트 6쪽 미리보기 (조명 가이드 페이지와 같은 베이지·주황) */
 :root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
 * { box-sizing: border-box }
 html, body { margin: 0; background: var(--desk); color: var(--ink) }
@@ -45,9 +45,9 @@ footer a, .incl a, .note a { color: var(--or) }
 <body>
 <main>
   <section class="card">
-    <div class="brand"><small>YUHIHA / MATERIAL SITE</small><h1>자재 사이트 만들기 가이드</h1></div>
-    <p class="lead">자주 쓰는 자재를 한곳에 모아 두고, 상담하면서 고객별로 담고, 마감재표로 바로 출력하는 사이트예요. 코딩 몰라도 그림을 보고 요청문만 복사해서 GPT에 보내면 따라 만들 수 있게 6쪽에 정리했어요.</p>
-    <a class="dl" href="YUHIHA_site_guide.pdf" download="유희하_자재사이트_만들기_가이드.pdf">PDF 받기<small>6쪽 · 0.9MB</small></a>
+    <div class="brand"><small>YUHIHA / MATERIAL SITE</small><h1>초보자 전용<br>자재 홈페이지 만드는 프롬프트</h1></div>
+    <p class="lead">자주 쓰는 자재를 한곳에 모아 두고, 상담하면서 고객별로 담고, 마감재표로 바로 출력하는 홈페이지예요. 코딩 몰라도 프롬프트를 복사해서 GPT에 붙여 넣기만 하면 돼요. 저희가 직접 돌려서 실행되는 것까지 확인했어요.</p>
+    <a class="dl" href="YUHIHA_site_prompt.pdf" download="유희하_자재홈페이지_프롬프트.pdf">프롬프트 PDF 받기<small>6쪽 · 0.9MB</small></a>
     <p class="note key"><b>PDF로 받아 두세요.</b> 2쪽에서 이 PDF를 GPT 대화에 그대로 첨부해서 시작해요. 아래 미리보기로 먼저 훑어보셔도 돼요.</p>
     <p class="note key"><b>곧 공개: 유희하 루비</b> 스케치업에서 바로 쓰는 유희하 루비도 곧 공개할게요. <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>를 팔로우해 두시면 공개될 때 가장 먼저 받아 보실 수 있어요.</p>
   </section>
@@ -61,7 +61,7 @@ footer a, .incl a, .note a { color: var(--or) }
       <li><b>고객 셀렉션</b> — 고객별·공간별로 담고 후보·확정·보류 표시</li>
       <li><b>마감재표 출력</b> — 담아 둔 자재로 보드·마감재표를 PNG·PDF로</li>
     </ol>
-    <p class="note">단계마다 GPT에 그대로 보낼 요청문이 들어 있어요. 사이트 제작 기능이 있는 ChatGPT 환경에서 따라 해 주세요.</p>
+    <p class="note">단계마다 GPT에 그대로 붙여 넣을 프롬프트가 들어 있어요. 사이트 제작 기능이 있는 ChatGPT 환경에서 따라 해 주세요.</p>
   </section>
 
   <section class="card">
@@ -74,7 +74,7 @@ footer a, .incl a, .note a { color: var(--or) }
     <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
   </section>
 
-  <h2><b>02</b>가이드 미리보기<span>6쪽</span></h2>
+  <h2><b>02</b>프롬프트 미리보기<span>6쪽</span></h2>
   <section class="card page"><img src="img/01.jpg" width="1200" height="1699" alt="1쪽 자주 쓰는 자재, 매번 다시 찾고 있나요?"></section>
   <section class="card page"><img src="img/02.jpg" width="1200" height="1699" alt="2쪽 STEP 1 이 화면을 첨부해요" loading="lazy"></section>
   <section class="card page"><img src="img/03.jpg" width="1200" height="1699" alt="3쪽 STEP 2 제품 목록을 주면 이미지와 정보를 모아요" loading="lazy"></section>
