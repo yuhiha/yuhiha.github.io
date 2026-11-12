@@ -2,81 +2,11 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>유희하 주방 ISO 만드는 법</title>
-<meta name="description" content="평면도·투시도·참고 이미지 세 장으로 내 주방을 아이소메트릭(ISO) 일러스트로 만드는 2쪽 가이드와 복사해서 쓰는 프롬프트">
-<meta property="og:title" content="유희하 주방 ISO 만드는 법">
-<meta property="og:description" content="내 주방을 ISO 일러스트로 만드는 2쪽 가이드와 프롬프트">
-<meta property="og:image" content="https://yuhiha.co.kr/kitchen-iso/img/01.jpg">
+<title>유희하 방 ISO 만드는 법</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="../img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
-<style>
-/* 레이아웃: 소개·PDF 받기 → 들어 있는 것 → 이용 조건 → 가이드 2쪽 미리보기 (자재 사이트 페이지와 같은 베이지·주황) */
-:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
-* { box-sizing: border-box }
-html, body { margin: 0; background: var(--desk); color: var(--ink) }
-body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
-  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
-main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
-.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
-.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
-h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
-.lead { margin: 12px 0 0; color: var(--muted) }
-.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
-.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
-.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
-.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
-.note.key b { color: var(--or) }
-h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
-h2 b { color: var(--or); font-size: 15px }
-h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
-main > h2 { margin: 6px 4px 0 }
-ol.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px }
-ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
-.page { padding: 0; overflow: hidden }
-.page img { display: block; width: 100%; height: auto }
-footer { text-align: center; color: var(--muted); font-size: 13px }
-footer a, .incl a, .note a { color: var(--or) }
-</style>
+<link rel="canonical" href="https://yuhiha.co.kr/room-iso/">
+<meta http-equiv="refresh" content="0; url=../room-iso/">
+<script>location.replace('../room-iso/' + location.search + location.hash);</script>
 </head>
-<body>
-<main>
-  <section class="card">
-    <div class="brand"><small>YUHIHA / AI INTERIOR GUIDE</small><h1>내 주방을 ISO로<br>만드는 법</h1></div>
-    <p class="lead">평면도·투시도·참고 이미지 세 장만 첨부하면, 내 주방 배치는 그대로 두고 참고 이미지의 재질과 표현만 가져와 아이소메트릭(ISO) 일러스트로 만들 수 있어요. 첨부 방법과 복사해서 쓰는 프롬프트를 2쪽에 정리했어요.</p>
-    <a class="dl" href="YUHIHA_kitchen_iso_guide.pdf" download="유희하_주방ISO_만드는법.pdf">가이드 PDF 받기<small>2쪽 · 7.3MB</small></a>
-    <p class="note key"><b>프롬프트는 그대로 복사하세요.</b> PDF 1쪽의 프롬프트를 복사해서 이미지 생성 기능이 있는 AI(ChatGPT 등)에 세 장의 이미지와 함께 보내면 돼요.</p>
-  </section>
-
-  <section class="card">
-    <h2><b>01</b>들어 있는 것</h2>
-    <ol class="steps">
-      <li><b>무엇을 첨부할지</b> — 평면도(배치 기준) · 투시도(형태 기준) · 참고 이미지(재질·표현)</li>
-      <li><b>복사해서 쓰는 프롬프트</b> — 배치는 지키고 재질·선·음영만 가져오게 요청하는 문장</li>
-      <li><b>가져온 것 vs 유지할 것</b> — 참고 이미지와 내 주방 ISO 비교</li>
-      <li><b>부분만 바꾸는 요청</b> — 아일랜드 상판만 바꾸는 식의 수정 프롬프트와 확인 팁</li>
-    </ol>
-    <p class="note">예시 결과는 AI 생성 이미지라 실제 모델 치수와 다를 수 있어요. 생성한 뒤 창·문, 설비 위치, 문짝 수와 통로를 원본과 꼭 비교해 주세요.</p>
-  </section>
-
-  <section class="card">
-    <h2><b>00</b>이용 조건</h2>
-    <ul class="incl">
-      <li>개인 공부와 실무에 자유롭게 참고하실 수 있어요.</li>
-      <li>PDF를 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
-      <li>강의·교육 자료로 쓰시려면 먼저 <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a>로 연락 주세요.</li>
-    </ul>
-    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
-  </section>
-
-  <h2><b>02</b>가이드 미리보기<span>2쪽</span></h2>
-  <section class="card page"><img src="img/01.jpg" width="1200" height="1698" alt="1쪽 이렇게 첨부하고, 내 주방을 ISO로 요청해요"></section>
-  <section class="card page"><img src="img/02.jpg" width="1200" height="1698" alt="2쪽 참고의 재질을, 내 주방에 적용하면" loading="lazy"></section>
-
-  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
-</main>
-</body>
+<body><a href="../room-iso/">방 ISO 만드는 법 페이지로 이동</a></body>
 </html>
