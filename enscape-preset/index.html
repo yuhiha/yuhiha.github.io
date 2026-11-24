@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 엔스케이프 공간별 세팅값</title>
+<meta name="description" content="거실·욕실 엔스케이프 공통 프리셋, 조명 기준 파일, HDRI와 불러오기 가이드">
+<meta property="og:title" content="유희하 엔스케이프 공간별 세팅값">
+<meta property="og:description" content="거실·욕실 엔스케이프 프리셋과 조명 기준">
+<meta property="og:image" content="https://yuhiha.co.kr/enscape-preset/img/01.jpg">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 소개·PDF 받기 → 들어 있는 것 → 이용 조건 → 가이드 2쪽 미리보기 (방 ISO 페이지와 같은 베이지·주황) */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note.key b { color: var(--or) }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
+main > h2 { margin: 6px 4px 0 }
+ol.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+.page { padding: 0; overflow: hidden }
+.page img { display: block; width: 100%; height: auto }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a, .note a { color: var(--or) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA / RENDERING SETTINGS</small><h1>엔스케이프<br>공간별 세팅값</h1></div>
+    <p class="lead">릴스에서 보신 거실·욕실 세팅값이에요. 공간에 맞는 프리셋 JSON 하나만 불러오면 노출·색온도·화각·출력 크기를 다시 입력할 필요가 없어요. 작업을 시작할 때 프리셋을 먼저 넣고, 조명 기준 파일은 참고용으로 봐 주세요. HDRI와 한 장짜리 불러오기 가이드도 같이 담았어요.</p>
+    <a class="dl" href="YUHIHA_enscape_settings_v1.zip" download="유희하_엔스케이프_세팅값_v1.zip">세팅값 받기<small>ZIP · 5.3MB</small></a>
+    <p class="note key"><b>PC에서 받아 주세요.</b> 휴대폰에서는 압축 파일이 열리지 않을 수 있어요. 이 페이지 주소를 PC로 옮겨서 받으시면 편해요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>들어 있는 것</h2>
+    <ul class="incl">
+      <li><b>01_거실_공통프리셋.json</b> — 75° · 3840×2160 · 수동 노출 50% · 6800K</li>
+      <li><b>01_욕실_공통프리셋.json</b> — 65° · 2160×2160 · 수동 노출 50% · 6800K</li>
+      <li><b>02_거실·욕실_조명설정_AI용.json</b> — 참고용. 기구별 광량·색·검수 순서를 정리한 조명 기준</li>
+      <li><b>HDR/white_cliff_top_2k.hdr</b> — 프리셋에 쓰인 하늘 HDRI (Poly Haven, CC0)</li>
+      <li><b>엔스케이프_프리셋_설정가이드.pdf</b> — 불러오는 순서 한 장 정리</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><b>02</b>쓰는 법</h2>
+    <ol class="steps">
+      <li>모델과 조명 기구를 배치한 뒤, 뷰를 잡기 전에 Enscape를 실행해요.</li>
+      <li><b>Visual Settings</b>를 열고 왼쪽 가운데 화살표로 프리셋 목록을 펼쳐요.</li>
+      <li><b>불러오기(Import)</b>로 작업할 공간의 <b>01_…_공통프리셋.json</b>을 선택해요.</li>
+      <li><b>Atmosphere → Skybox</b>에서 함께 드린 <b>white_cliff_top_2k.hdr</b>를 지정해요.</li>
+      <li>화각·출력 크기를 확인하고 SketchUp 파일을 저장하면, 다음부터 목록에서 바로 고를 수 있어요.</li>
+      <li>재질 조정이 끝나면 <b>블룸만 0%에서 15%로</b> 올려 최종 출력해요.</li>
+    </ol>
+    <p class="note">자세한 메뉴 위치는 <a href="https://docs-chaos.atlassian.net/wiki/spaces/ESKETCHUP/pages/127736887/Settings+Presets">Enscape 공식 안내</a>를 참고해 주세요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>00</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무에 자유롭게 쓰실 수 있어요.</li>
+      <li>파일을 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="mailto:yuhiha4733@gmail.com">yuhiha4733@gmail.com</a>으로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
+  </section>
+
+  <h2><b>03</b>가이드 미리보기<span>1쪽</span></h2>
+  <section class="card page"><img src="img/01.jpg" width="1200" height="1698" alt="엔스케이프 프리셋 불러오기: 비주얼 설정 열기, 공간에 맞는 JSON 선택, 화각과 출력 크기 확인"></section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
+</main>
+</body>
+</html>
