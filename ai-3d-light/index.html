@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 AI 3D 모델 경량화</title>
+<meta name="description" content="AI로 가구 3D 모델을 만들 때 형상과 재질을 나누는 법, 복사해서 쓰는 프롬프트와 라탄 의자 예제 SKP">
+<meta property="og:title" content="유희하 AI 3D 모델 경량화">
+<meta property="og:description" content="AI 3D 모델 경량화 프롬프트와 예제 SKP">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 소개·PDF 받기 → 들어 있는 것 → 이용 조건 → 가이드 2쪽 미리보기 (방 ISO 페이지와 같은 베이지·주황) */
+:root { --ink: #40362f; --muted: #8a7e74; --or: #ba4d2c; --band: #f7f3ec; --line: #ddd5c8; --paper: #ffffff; --desk: #f2efe7 }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(64,54,47,.08) }
+.brand small { display: block; color: var(--or); font-weight: 700; font-size: 14px }
+h1 { margin: 4px 0 0; font-size: 27px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--or); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .9 }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px }
+.note.key { background: var(--paper); border-left: 4px solid var(--or); border-radius: 0 8px 8px 0; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px }
+.note.key b { color: var(--or) }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+h2 b { color: var(--or); font-size: 15px }
+h2 span { color: var(--muted); font-size: 14px; font-weight: 400 }
+main > h2 { margin: 6px 4px 0 }
+ol.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
+.page { padding: 0; overflow: hidden }
+.page img { display: block; width: 100%; height: auto }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a, .incl a, .note a { color: var(--or) }
+table { width: 100%; border-collapse: collapse; font-size: 14px }
+th, td { border-top: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top }
+th:first-child, td:first-child { width: 4.8em; font-weight: 700 }
+th { color: var(--muted); font-weight: 700; background: var(--band) }
+.prompt { position: relative; margin: 10px 0 0 }
+.prompt pre { margin: 0; white-space: pre-wrap; word-break: keep-all; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 14px 14px 14px; font-family: inherit; font-size: 14px; line-height: 1.65 }
+.copy { display: block; width: 100%; margin-top: 8px; border: 0; border-radius: 8px; background: var(--ink); color: #fff; font: inherit; font-weight: 700; padding: 11px; cursor: pointer }
+.copy.done { background: var(--or) }
+ul.fix { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 10px }
+ul.fix span { display: block; color: var(--muted); font-size: 14px }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>AI, '딸깍' 하지 말자! / 01</small><h1>AI 3D 모델<br>경량화 방식과 예제</h1></div>
+    <p class="lead">라탄 의자를 예시로, AI에 가구 모델을 요청할 때 <b>직접 만들어야 할 3D 형상</b>과 <b>재질로 옮길 표면 디테일</b>을 나누는 방법이에요. 복사해서 쓰는 프롬프트는 이 페이지에 있고, 비교용 SKP 두 개는 아래에서 받을 수 있어요.</p>
+    <a class="dl" href="YUHIHA_ai_3d_light_v1.zip" download="유희하_AI3D모델_경량화예제_v1.zip">예제 SKP 받기<small>ZIP · 5.3MB · SketchUp 2026 파일</small></a>
+    <p class="note key"><b>PC에서 받아 주세요.</b> SKP는 SketchUp 2026 이상에서 열려요. 프롬프트는 휴대폰에서도 바로 복사할 수 있어요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>생성 전에 무엇을 남길지 정해요</h2>
+    <table>
+      <tr><th>구분</th><th>3D 형상으로</th><th>재질로</th></tr>
+      <tr><td>외곽 형태</td><td>멀리서도 윤곽을 바꾸는 프레임, 팔걸이, 다리, 좌판</td><td>외곽 변화가 거의 없는 직조나 인쇄 무늬</td></tr>
+      <tr><td>두께와 접점</td><td>쿠션 두께, 바닥에 닿는 다리, 실제로 떨어져 있는 부재</td><td>표면 안에서만 보이는 결이나 미세한 굴곡</td></tr>
+      <tr><td>반복 디테일</td><td>가까이 보는 컷에서 실제 틈이나 단면이 중요한 부분</td><td>공간 전체 컷에서 무늬로 읽히는 라탄, 직물, 나뭇결</td></tr>
+    </table>
+    <p class="note">이 예제에서는 <b>앞다리부터 팔걸이와 등받이 상단까지 이어지는 곡선</b>을 형상으로 남겨요. 라탄이 있던 부분은 외곽을 따라 하나의 곡면으로 만들고, 짜임은 재질로 표현해요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>02</b>라탄 의자용 복사 프롬프트</h2>
+    <div class="prompt"><pre id="p1">첨부한 참고 이미지를 바탕으로 실내 가구 배치에 사용할 라탄 배럴 체어의 3D 모델을 만들어줘.
+
+[용도]
+실내 전체 장면에서 여러 번 배치할 가구 자산이야. 전체 실루엣과 조립 관계가 읽히도록 하고, 반복되는 표면 디테일은 간단히 처리해줘.
+
+[3D 형상으로 만들 부분]
+- 양쪽 앞다리에서 팔걸이와 등받이 상단으로 이어지는 검은 프레임을 하나의 연속된 곡선으로 만들어줘.
+- 팔걸이에서 등받이로 넘어가는 부분은 넓고 부드럽게 휘게 해줘. 연결부에 별도의 막대를 덧붙이거나 프레임을 겹치지 마.
+- 뒷다리의 위치와 벌어지는 각도, 좌판의 윤곽과 쿠션 두께를 유지해줘.
+- 라탄이 들어갈 등받이 부분은 프레임 안쪽 외곽을 따라 부드럽게 휘는 하나의 곡면으로 만들어줘.
+
+[재질로 표현할 부분]
+- 반복되는 라탄의 짜임, 가닥의 미세한 굴곡, 표면의 반사 차이는 재질로 표현할 수 있도록 준비해줘.
+- 등받이를 다른 부재와 따로 선택하고 교체할 수 있게 별도 재질 영역으로 지정해줘.
+- 등받이의 UV가 겹치거나 갑자기 늘어나지 않도록 정리해줘.
+- 이 모델에서 라탄 가닥 하나하나를 별도 메시로 만들거나 곡면 위에 반복 생성하지 마.
+
+[검수 기준]
+- 정면, 사선, 옆면에서 프레임 연결과 전체 윤곽을 확인해줘.
+- 등받이 재질을 끈 상태에서도 외곽 형태와 쿠션 두께가 남아 있어야 해.
+- 내보내기 전에 등받이 메시를 확인해서 가닥 단위의 반복 형상이 남아 있으면 정리해줘.</pre><button class="copy" data-t="p1">프롬프트 복사</button></div>
+  </section>
+
+  <section class="card">
+    <h2><b>03</b>다른 가구에도 쓰는 양식</h2>
+    <p class="lead" style="margin:0">[ ] 안만 내 가구에 맞게 바꿔서 쓰세요.</p>
+    <div class="prompt"><pre id="p2">참고 이미지의 [가구 이름]을 [배치용 / 제품 근접 컷 / 공간 렌더용] 3D 모델로 만들어줘.
+
+1. 유지할 구조
+   [실루엣을 결정하는 부재]를 직접 모델링해줘.
+   [두께, 접점, 비례]는 이미지의 인상을 유지해줘.
+
+2. 재질로 처리할 부분
+   [반복되는 무늬와 미세한 굴곡]은 별도의 재질로 적용할 수 있게 해줘.
+   해당 면을 따로 선택할 수 있도록 재질 영역을 분리하고 UV를 정리해줘.
+
+3. 줄일 형상
+   [공간 전체 컷에서 거의 보이지 않는 디테일]을 반복 형상으로 만들지 마.
+   [멀리서도 보이는 외곽이나 실제 틈]은 남겨줘.
+
+4. 사용하기 전 확인
+   [정면·옆면·사선]에서 윤곽이 유지되는지 보여줘.
+   모델을 회전하면서 위치, 단위, 바닥과 닿는 점을 확인할 수 있게 해줘.</pre><button class="copy" data-t="p2">양식 복사</button></div>
+  </section>
+
+  <section class="card">
+    <h2><b>04</b>결과가 예상과 다를 때</h2>
+    <ul class="fix">
+      <li><b>팔걸이가 두 겹으로 생성됐을 때</b><span>“앞다리와 등받이 사이를 한 줄의 연속 프레임으로 이어줘. 그 위에 덧대어진 추가 부재는 제거해줘.”</span></li>
+      <li><b>라탄 가닥이 여전히 3D로 남았을 때</b><span>“등받이 안쪽의 모든 라탄 반복 메시를 제거하고, 기존 외곽을 따라 이어진 곡면과 별도 재질 영역을 남겨줘.”</span></li>
+      <li><b>등받이 모양까지 사라졌을 때</b><span>“좌우 팔걸이 끝에서 등받이 상단으로 이어지는 기존 외곽선을 기준으로 곡면을 다시 잡아줘.”</span></li>
+      <li><b>무늬가 늘어나 보일 때</b><span>“곡면 위에서 짜임의 간격이 일정하게 보이도록 UV를 다시 펼치고, 좌우에서 재질 방향을 확인해줘.”</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><b>05</b>예제 파일 비교하기</h2>
+    <ol class="steps">
+      <li><b>01_라탄의자_3D짜임.skp</b>를 열고 등받이에서 숨은 형상을 켜요. 가닥마다 보이는 선과 면을 확인해요.</li>
+      <li><b>02_라탄의자_경량화_곡면.skp</b>를 열고 같은 각도에서 등받이를 확인해요. 원하는 Base Color와 Normal 맵을 곡면에 적용해 보세요.</li>
+      <li>가구 외곽과 바닥 접점이 유지되는지, 곡면이 프레임 안쪽을 따라가는지 확인해요.</li>
+      <li>같은 카메라·조명에서 <b>컬러 맵만 적용한 컷</b>과 <b>노멀 맵을 추가한 컷</b>을 비교해 보세요.</li>
+    </ol>
+    <p class="note">PBR 이미지 파일은 쓰시는 재질에서 따로 준비해 주세요. AI 도구마다 내보내기 형식과 재질 처리 기능이 달라서, 생성 결과는 SKP에서 한 번 더 확인하는 게 좋아요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>00</b>이용 조건</h2>
+    <ul class="incl">
+      <li>개인 공부와 실무에 자유롭게 쓰실 수 있어요.</li>
+      <li>파일을 다른 곳에 올리거나 <b>재배포·판매할 수 없어요.</b></li>
+      <li>강의·교육 자료로 쓰시려면 먼저 <a href="mailto:yuhiha4733@gmail.com">yuhiha4733@gmail.com</a>으로 연락 주세요.</li>
+    </ul>
+    <p class="note">주변에 알려 주고 싶으시면 파일 대신 인스타 게시물을 공유해 주세요 🙏</p>
+  </section>
+
+  <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
+</main>
+<script>
+document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
+  const t = document.getElementById(b.dataset.t).innerText, label = b.textContent;
+  try { await navigator.clipboard.writeText(t) } catch (e) {
+    const r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.t));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges();
+  }
+  b.textContent = '복사했어요'; b.classList.add('done');
+  setTimeout(() => { b.textContent = label; b.classList.remove('done') }, 1600);
+}));
+</script>
+</body>
+</html>
